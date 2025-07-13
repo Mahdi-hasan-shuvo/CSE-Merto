@@ -1,21 +1,23 @@
-# CSE-62: Structured Programming
+# Metropolitan CSE-62 Coursework Repository
 
-![Structured Programming Banner](https://img.shields.io/badge/Subject-Structured%20Programming-blue?style=for-the-badge)
-![Repo Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)
+![Metropolitan Logo](https://img.shields.io/badge/Metropolitan%20CSE-Assignments%2C%20Reports%2C%20Resources-blue?style=for-the-badge)
+![Repo Status](https://img.shields.io/badge/status-active-success?style=for-the-badge")
 
-> **This repository contains assignments, codes, notes, and resources for the Structured Programming course (CSE-62) at Metropolitan.**
+> **This repository contains all assignments, codes, notes, and resources for multiple subjects (Structured Programming, BEE, C Programming, Physics, and more) in the Metropolitan CSE-62 curriculum.**
 
 ---
 
 ## 📚 Overview
 
-Welcome to the **Structured Programming** repo!  
-This repo is designed to help students and educators easily access all course materials, assignments, sample codes, and best practices in structured programming.
+Welcome to the Metropolitan **CSE-62** multi-subject repo!  
+Find everything you need for your coursework – from assignments and project reports to lecture notes and code examples – organized by subject for easy access and learning.
 
-- **Assignments:** Well-organized by week/topic, with instructions and sample solutions.
-- **Lecture Notes:** Summarized notes and key concepts for easy revision.
-- **Code Examples:** Practical code snippets in C, Python, or other languages.
-- **Resources:** Extra materials, references, and learning guides.
+**Subjects Included:**
+- Structured Programming
+- Basic Electrical Engineering (BEE)
+- C Programming
+- Physics
+- (Add more as needed!)
 
 ---
 
@@ -23,24 +25,26 @@ This repo is designed to help students and educators easily access all course ma
 
 ```
 CSE-62/
-└── Structured_programming/
-    ├── Assignment-1/
-    │   ├── README.md
-    │   └── solution.c
-    ├── Assignment-2/
-    │   └── ...
-    ├── Notes/
-    │   ├── Week1.md
-    │   └── Week2.md
-    ├── Codes/
-    │   ├── loops.c
-    │   ├── functions.py
-    │   └── ...
-    ├── Resources/
-    │   ├── Reference.pdf
-    │   └── Tips.md
-    └── README.md
+├── Structured_programming/
+│   ├── Assignments/
+│   ├── Notes/
+│   ├── Codes/
+│   └── Resources/
+├── BEE/
+│   ├── Assignments/
+│   ├── Notes/
+│   └── Resources/
+├── C_programming/
+│   ├── Assignments/
+│   ├── Codes/
+│   └── Resources/
+├── Physics/
+│   ├── Assignments/
+│   ├── Notes/
+│   └── Resources/
+└── README.md
 ```
+*Each subject has its own folder, with subfolders for assignments, notes, codes, and resources.*
 
 ---
 
@@ -50,49 +54,43 @@ CSE-62/
    ```bash
    git clone https://github.com/Mahdi-hasan-shuvo/CSE-Merto.git
    ```
-   *(Then navigate to the `CSE-62/Structured_programming` folder)*
+   *(Navigate to the `CSE-62` directory and select your subject)*
 
-2. **Browse content:**
-   - Open assignments for your homework.
-   - Read notes for quick revision.
-   - Check code samples for learning syntax and logic.
+2. **Browse content:**  
+   - Choose your subject.
+   - Open assignments, notes, or code samples as needed.
 
-3. **Contribute:**
-   - Fork the repo.
-   - Add your assignment or resource.
-   - Create a pull request!
+3. **Contribute:**  
+   - Fork the repo, add your files, and submit a pull request!
 
 ---
 
 ## 📝 Contributing
 
-Contributions are always welcome!  
-Please follow the structure above when adding new materials.
+Contributions are highly encouraged!  
+To keep things organized, please follow the subject-folder structure.
 
-- **Assignments:** Place each in its respective folder.
-- **Notes:** Add markdown files summarizing lectures.
-- **Codes:** Provide clear examples with comments.
-- **Resources:** Share helpful guides, links, or PDFs.
+- **Assignments:** Place each assignment in the relevant subject’s folder.
+- **Notes:** Summarize lectures and important concepts in markdown files.
+- **Codes:** Provide well-commented code samples or solutions.
+- **Resources:** Add useful PDFs, guides, or external links.
 
 ---
 
-## 🤔 Why Structured Programming?
+## 🌟 Subjects Guide
 
-Structured programming is a systematic approach to programming that improves code readability, maintainability, and reliability.  
-This course focuses on:
-
-- Basics of algorithms and flowcharts
-- Control structures: sequence, selection, iteration
-- Modular code: functions/procedures
-- Best practices in coding
+- **Structured Programming:** Learn algorithmic thinking, control structures, and modular programming.
+- **BEE:** Explore electrical circuits, basic electronics, and engineering principles.
+- **C Programming:** Practice programming fundamentals and syntax in C.
+- **Physics:** Study mechanics, electromagnetism, and more.
 
 ---
 
 ## 📣 Upcoming Updates
 
-- New assignments and solutions
-- More lecture summaries
-- Advanced code examples and exercises
+- More assignments and solutions for each subject.
+- Additional lecture notes and revision guides.
+- Expanded code sample library.
 
 ---
 
@@ -105,8 +103,8 @@ For questions, suggestions, or help:
 
 ## ⭐️ Show Your Support
 
-If this repository helps you, give it a star ⭐️ and share it with classmates!
+If this repository helps you, give it a star ⭐️ and share with classmates!
 
 ---
 
-*Stay tuned for regular updates as the course progresses!*
+*Stay tuned for regular updates and new subjects as the curriculum expands!*

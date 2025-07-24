@@ -2,6 +2,7 @@
 #include <math.h>
 // Name : Mahdi Hasan Shuvo
 // GitHub: Mahdi-Hasan-Shuvo
+// ID: 251-115-030 
 int main() {
 	double theta, lamda,d;
 	int m;
@@ -9,7 +10,7 @@ int main() {
     scanf("%lf", &lamda);
     if (lamda < 380 || lamda > 750) {
         printf("Out of the range. Please enter a valid number.\n");
-        main();
+       // main();
     }
     printf("Enter angle θ in degrees : ");
     scanf("%lf", &theta);

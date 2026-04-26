@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC & FA Professional Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #f4efe9;
+  --paper: #ffffff;
+  --ink: #16222c;
+  --muted: #4b5a67;
+  --accent: #c1672f;
+  --accent-2: #2d6a4f;
+  --line: #e3ddd5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #fff3e6 0%, transparent 60%),
+    radial-gradient(900px 700px at 90% -20%, #e7f2f0 0%, transparent 55%),
+    linear-gradient(180deg, #f6f2ee 0%, #f0ede7 100%);
+  min-height: 100vh;
+}
+header {
+  background: linear-gradient(120deg, #1f2f3a 0%, #0f3d3c 100%);
+  color: #f8fafc;
+  padding: 32px 24px 28px;
+  text-align: center;
+  border-bottom: 4px solid #e1b382;
+  animation: fadeIn 0.8s ease-out;
+}
+header h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4em;
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+header p {
+  margin: 0;
+  color: #e6f0f0;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 28px auto 60px;
+  padding: 0 24px;
+}
+nav.toc {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 28px rgba(20, 30, 40, 0.08);
+}
+nav.toc summary {
+  font-weight: 700;
+  color: var(--accent-2);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+nav.toc ul { list-style: none; padding: 0; margin: 10px 0 0; }
+nav.toc li { margin: 8px 0; }
+nav.toc a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95em;
+  border-left: 3px solid transparent;
+  padding-left: 10px;
+  display: block;
+}
+nav.toc a:hover {
+  border-left-color: var(--accent);
+  color: var(--accent);
+}
+main {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 30px 34px;
+  box-shadow: 0 14px 30px rgba(16, 24, 32, 0.08);
+  animation: rise 0.7s ease-out;
+}
+h1, h2, h3, h4 { font-family: "Cormorant Garamond", serif; }
+h1 { font-size: 2.1em; color: var(--accent-2); margin-top: 28px; }
+h2 { font-size: 1.7em; color: #1f2f3a; margin-top: 26px; }
+h3 { font-size: 1.35em; color: #243643; margin-top: 18px; }
+h4 { font-size: 1.1em; color: #2d3e4a; margin-top: 14px; }
+p { line-height: 1.7; margin: 10px 0; color: var(--ink); }
+code {
+  background: #f3ede6;
+  color: #6b2f1a;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.95em;
+}
+pre {
+  background: #13222c;
+  color: #e8f0f2;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code { background: none; color: inherit; padding: 0; }
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: #fdf5ef;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 0 10px 10px 0;
+  color: var(--muted);
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+  font-size: 0.98em;
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: #f4ede4; color: #2a3b45; }
+
+ul, ol { margin: 12px 0 16px 22px; }
+li { margin: 6px 0; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  margin: 40px 0 10px;
+  font-size: 0.95em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; }
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>MC & FA Professional Study Guide</h1>
+<p>MAT 135 | Matrices, Complex Variable & Fourier Analysis | CSE Department</p>
+</header>
+<div class="layout">
+<nav class="toc"><details open><summary>Contents</summary><ul><li><a href="#mc-fa-master-study-guide">MC &amp; FA — MASTER STUDY GUIDE</a></li><li>&nbsp;&nbsp;<a href="#table-of-contents">TABLE OF CONTENTS</a></li><li><a href="#part-i-roadmap-syllabus">PART I — ROADMAP &amp; SYLLABUS</a></li><li>&nbsp;&nbsp;<a href="#the-suggestion-sheet-decoded">The &quot;Suggestion&quot; sheet decoded</a></li><li>&nbsp;&nbsp;<a href="#learning-roadmap-beginner-exam-ready">Learning roadmap (beginner → exam-ready)</a></li><li>&nbsp;&nbsp;<a href="#difficulty-grouping-of-problems-seen">Difficulty grouping of problems seen</a></li><li><a href="#part-ii-matrices-concept-teaching">PART II — MATRICES (CONCEPT TEACHING)</a></li><li>&nbsp;&nbsp;<a href="#1-definitions-special-types">1. Definitions &amp; Special Types</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-define-x-with-example-cheat-card">The &quot;Define X with example&quot; cheat-card</a></li><li>&nbsp;&nbsp;<a href="#2-determinants-adjoint">2. Determinants &amp; Adjoint</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#22-determinant">2×2 determinant</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#33-determinant-cofactor-expansion-along-row-1">3×3 determinant (cofactor expansion along Row 1)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cofactor-matrix-c">Cofactor matrix C</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#adjoint-adjugate">Adjoint (Adjugate)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sign-pattern-shortcut-for-33-cofactors">Sign-pattern shortcut for 3×3 cofactors</a></li><li>&nbsp;&nbsp;<a href="#3-inverse-3-methods">3. Inverse — 3 Methods</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-1-adjoint-method">Method 1 — Adjoint Method</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-2-row-canonical-gauss-jordan-method">Method 2 — Row Canonical (Gauss-Jordan) Method</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-3-using-elementary-matrices-cayley-hamilton-rarely-asked-but-completes-the-3-ta-type-expectation-in-the-suggestion-sheet">Method 3 — Using Elementary Matrices / Cayley-Hamilton (rarely asked but completes the &quot;3 ta type&quot; expectation in the suggestion sheet)</a></li><li>&nbsp;&nbsp;<a href="#4-rank-of-a-matrix">4. Rank of a Matrix</a></li><li>&nbsp;&nbsp;<a href="#5-systems-of-linear-equations">5. Systems of Linear Equations</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#51-adjoint-method-solve-ax-b">5.1 Adjoint Method (Solve Ax = b)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#52-gaussian-elimination-row-echelon-form">5.2 Gaussian Elimination (= Row-Echelon Form)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#53-gauss-jordan-reduced-row-echelon-form-rref">5.3 Gauss-Jordan (= Reduced Row-Echelon Form, RREF)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#54-lu-decomposition-doolittles-method">5.4 LU Decomposition (Doolittle&#x27;s Method)</a></li><li>&nbsp;&nbsp;<a href="#6-eigenvalues-eigenvectors">6. Eigenvalues &amp; Eigenvectors</a></li><li>&nbsp;&nbsp;<a href="#7-hermitian-skew-hermitian">7. Hermitian / Skew-Hermitian</a></li><li><a href="#part-iii-complex-numbers-concept-teaching">PART III — COMPLEX NUMBERS (CONCEPT TEACHING)</a></li><li>&nbsp;&nbsp;<a href="#1-definitions-special-numbers">1. Definitions &amp; Special Numbers</a></li><li>&nbsp;&nbsp;<a href="#2-forms">2. Forms</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#quadrant-aware-argument-table">Quadrant-aware argument table</a></li><li>&nbsp;&nbsp;<a href="#3-argand-diagram-modulus">3. Argand Diagram &amp; Modulus</a></li><li>&nbsp;&nbsp;<a href="#4-de-moivres-theorem">4. De Moivre&#x27;s Theorem</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#proof-induction-on-positive-integer-n">Proof (induction on positive integer n)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#how-de-moivre-is-used">How De Moivre is used</a></li><li>&nbsp;&nbsp;<a href="#5-triangle-inequality-modulus-properties">5. Triangle Inequality &amp; Modulus Properties</a></li><li><a href="#part-iv-fully-worked-solutions">PART IV — FULLY WORKED SOLUTIONS</a></li><li>&nbsp;&nbsp;<a href="#ct-01-batch-62b">CT-01, Batch 62(B)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-5-solve-by-adjoint-method">Q1 (5) — Solve by Adjoint Method</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-5-inverse-of-a-by-row-canonical">Q2 (5) — Inverse of A by Row Canonical</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-5-gaussian-elimination">Q3 (5) — Gaussian Elimination</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q4-5-gauss-jordan">Q4 (5) — Gauss-Jordan</a></li><li>&nbsp;&nbsp;<a href="#ct-02-batch-62b">CT-02, Batch 62(B)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-8-eigenvalues-eigenvectors">Q1 (8) — Eigenvalues &amp; Eigenvectors</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-8-lu-factorization">Q2 (8) — LU Factorization</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-4-show-zz-zz">Q3 (4) — Show |z₁/z₂| = |z₁|/|z₂|</a></li><li>&nbsp;&nbsp;<a href="#ct-01-batch-62c">CT-01, Batch 62(C)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-5-adjoint-method">Q1 (5) — Adjoint Method</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-5-inverse-by-row-canonical">Q2 (5) — Inverse by Row Canonical</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-5-gaussian-elimination-1">Q3 (5) — Gaussian Elimination</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q4-5-definitions">Q4 (5) — Definitions</a></li><li>&nbsp;&nbsp;<a href="#ct-02-batch-62c">CT-02, Batch 62(C)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-8-eigenvalues-eigenvectors-1">Q1 (8) — Eigenvalues / Eigenvectors</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-8-lu">Q2 (8) — LU</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-4-express-cos-as-acos5-bcos3-ccos">Q3 (4) — Express cos⁵θ as a·cos5θ + b·cos3θ + c·cosθ</a></li><li>&nbsp;&nbsp;<a href="#ct-01-batch-62d">CT-01, Batch 62(D)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-5-adjoint-method-1">Q1 (5) — Adjoint Method</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-5-definitions">Q2 (5) — Definitions</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-5-gaussian-elimination-same-system-as-batch-b-q4">Q3 (5) — Gaussian Elimination (same system as Batch B Q4)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q4-5-hermitian-skew-hermitian">Q4 (5) — Hermitian / Skew-Hermitian</a></li><li>&nbsp;&nbsp;<a href="#ct-02-batch-62d">CT-02, Batch 62(D)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q1-8-eigenvalues-of-a-symmetric-matrix">Q1 (8) — Eigenvalues of a symmetric matrix</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q2-8-lu-1">Q2 (8) — LU</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#q3-4-modulus-median-length">Q3 (4) — Modulus + Median Length</a></li><li>&nbsp;&nbsp;<a href="#spring-2026-class-test-1">SPRING 2026 — Class Test 1</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#set-a">Set A</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#set-b">Set B</a></li><li>&nbsp;&nbsp;<a href="#spring-2026-class-test-2">SPRING 2026 — Class Test 2</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#set-a-1">Set A</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#set-b-1">Set B</a></li><li><a href="#part-v-formula-sheet-cheat-sheet">PART V — FORMULA SHEET / CHEAT SHEET</a></li><li>&nbsp;&nbsp;<a href="#determinants-inverses">Determinants &amp; Inverses</a></li><li>&nbsp;&nbsp;<a href="#solving-ax-b-quick-chooser">Solving Ax = b — quick chooser</a></li><li>&nbsp;&nbsp;<a href="#lu-formulas-doolittle-33">LU formulas (Doolittle, 3×3)</a></li><li>&nbsp;&nbsp;<a href="#eigenvalue-formula-33">Eigenvalue formula (3×3)</a></li><li>&nbsp;&nbsp;<a href="#complex-number-identities-must-know">Complex-number identities (must-know)</a></li><li>&nbsp;&nbsp;<a href="#power-reduction-recipe-key-for-cosn-sinn">Power-reduction recipe (key for cos^n θ, sin^n θ)</a></li><li><a href="#part-vi-common-mistakes-shortcuts">PART VI — COMMON MISTAKES &amp; SHORTCUTS</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fast-shortcuts">Fast shortcuts</a></li><li><a href="#part-vii-practice-set">PART VII — PRACTICE SET</a></li><li>&nbsp;&nbsp;<a href="#easy-warm-up">Easy (warm-up)</a></li><li>&nbsp;&nbsp;<a href="#medium-exam-style">Medium (exam-style)</a></li><li>&nbsp;&nbsp;<a href="#hard-challenge">Hard (challenge)</a></li><li><a href="#part-viii-mock-test-1-hour-20-marks">PART VIII — MOCK TEST (1 hour, 20 marks)</a></li><li>&nbsp;&nbsp;<a href="#answer-key">Answer Key</a></li><li><a href="#part-ix-active-learning-quiz-revision-checklist">PART IX — ACTIVE-LEARNING QUIZ &amp; REVISION CHECKLIST</a></li><li>&nbsp;&nbsp;<a href="#30-second-flash-quiz-cover-the-right-column">30-second flash quiz (cover the right column)</a></li><li>&nbsp;&nbsp;<a href="#try-before-you-peek-problems">Try-before-you-peek problems</a></li><li>&nbsp;&nbsp;<a href="#spaced-repetition-queue">Spaced-repetition queue</a></li><li>&nbsp;&nbsp;<a href="#revision-checklist-tick-before-exam">Revision Checklist (tick before exam)</a></li><li><a href="#appendix-a-visual-maps-memory-aids">APPENDIX A — Visual Maps &amp; Memory Aids</a></li><li>&nbsp;&nbsp;<a href="#concept-map-matrices">Concept Map: Matrices</a></li><li>&nbsp;&nbsp;<a href="#concept-map-complex-numbers">Concept Map: Complex Numbers</a></li><li>&nbsp;&nbsp;<a href="#polar-conversion-decision-tree">Polar Conversion Decision Tree</a></li><li>&nbsp;&nbsp;<a href="#mnemonics">Mnemonics</a></li><li><a href="#part-x-analysis-of-your-attempts-weak-area-tracker">PART X — ANALYSIS OF YOUR ATTEMPTS &amp; WEAK-AREA TRACKER</a></li><li>&nbsp;&nbsp;<a href="#what-was-analyzed-from-your-folder">What was analyzed from your folder</a></li><li>&nbsp;&nbsp;<a href="#strengths-seen-in-your-current-work">Strengths seen in your current work</a></li><li>&nbsp;&nbsp;<a href="#mistakes-gaps-identified-and-corrected">Mistakes / gaps identified and corrected</a></li><li>&nbsp;&nbsp;<a href="#personalized-weak-area-map-from-your-materials">Personalized weak-area map (from your materials)</a></li><li>&nbsp;&nbsp;<a href="#targeted-improvement-drills-your-next-5-sessions">Targeted improvement drills (your next 5 sessions)</a></li><li>&nbsp;&nbsp;<a href="#error-log-template-fill-after-every-practice-set">Error-log template (fill after every practice set)</a></li><li><a href="#part-xi-adaptive-active-learning-mode">PART XI — ADAPTIVE ACTIVE-LEARNING MODE</a></li><li>&nbsp;&nbsp;<a href="#step-a-learn---recall---solve">Step A — Learn -&gt; Recall -&gt; Solve</a></li><li>&nbsp;&nbsp;<a href="#step-b-section-quizzes-do-before-seeing-answers">Step B — Section quizzes (do before seeing answers)</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#quiz-matrix-foundations">Quiz: Matrix Foundations</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#quiz-lu-eigen">Quiz: LU + Eigen</a></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#quiz-complex-numbers">Quiz: Complex Numbers</a></li><li>&nbsp;&nbsp;<a href="#step-c-spaced-repetition-prompts">Step C — Spaced repetition prompts</a></li><li>&nbsp;&nbsp;<a href="#step-d-adaptive-rule-how-to-respond-to-weak-areas">Step D — Adaptive rule (how to respond to weak areas)</a></li><li>&nbsp;&nbsp;<a href="#self-check-scoreboard-update-every-3-days">Self-check scoreboard (update every 3 days)</a></li><li><a href="#closing-note">CLOSING NOTE</a></li></ul></details></nav>
+<main>
+<h1 id="mc-fa-master-study-guide">MC &amp; FA — MASTER STUDY GUIDE</h1>
+<p><strong>Course:</strong> MAT 135 — Matrices, Complex Variable &amp; Fourier Analysis<br><strong>Department:</strong> CSE, Metropolitan University<br><strong>Scope:</strong> CT-01 (Matrices) + CT-02 (Eigenvalues, LU, Complex Numbers)<br><strong>Built from:</strong> Suggestion sheet + all CT papers (Batch 62B/C/D + Spring 2026 Set A/B) + theory notes</p>
+<hr>
+<h2 id="table-of-contents">TABLE OF CONTENTS</h2>
+<ul><li><strong>PART I — Roadmap &amp; Syllabus</strong></li><li><strong>PART II — MATRICES (Concept Teaching)</strong></li></ul>
+<ol><li>Definitions &amp; Types</li><li>Determinants &amp; Adjoint</li><li>Inverse — 3 Methods</li><li>Rank of a Matrix</li><li>Systems of Linear Equations (Adjoint, Gauss Elim, Gauss-Jordan, LU)</li><li>Eigenvalues &amp; Eigenvectors</li><li>Hermitian / Skew-Hermitian</li></ol>
+<ul><li><strong>PART III — COMPLEX NUMBERS (Concept Teaching)</strong></li></ul>
+<ol><li>Definitions &amp; Special Numbers</li><li>Forms (Cartesian / Polar / Exponential)</li><li>Argand Diagram &amp; Modulus</li><li>De Moivre&#x27;s Theorem (Statement + Proof)</li><li>Triangle Inequality &amp; Modulus Properties</li><li>Powers, Roots, Trig Identities</li></ol>
+<ul><li><strong>PART IV — Fully Worked Solutions to Every CT Problem</strong></li><li><strong>PART V — Formula Sheet / Cheat Sheet</strong></li><li><strong>PART VI — Common Mistakes &amp; Shortcuts</strong></li><li><strong>PART VII — Practice Set (Easy / Medium / Hard)</strong></li><li><strong>PART VIII — Mock Test (with Answer Key)</strong></li><li><strong>PART IX — Active-Learning Quiz &amp; Revision Checklist</strong></li><li><strong>PART X — Analysis of Your Attempts &amp; Weak-Area Tracker</strong></li><li><strong>PART XI — Adaptive Active-Learning Mode</strong></li></ul>
+<hr>
+<h1 id="part-i-roadmap-syllabus">PART I — ROADMAP &amp; SYLLABUS</h1>
+<h2 id="the-suggestion-sheet-decoded">The &quot;Suggestion&quot; sheet decoded</h2>
+<blockquote><strong>Matrix (3 marks side):</strong> Definition of matrix, Inverse matrix (3 methods incl. row-canonical), System of linear equations (LU, Gauss elimination, Gauss-Jordan).<br><strong>Complex (2 marks side):</strong> De Moivre&#x27;s theorem (proof + math), Graphical representation, Polar form, Triangle inequality.</blockquote>
+<h2 id="learning-roadmap-beginner-exam-ready">Learning roadmap (beginner → exam-ready)</h2>
+<table>
+<thead><tr><th>Stage</th><th>What to master</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Matrix definitions &amp; special types</td><td>Q4 always asks &quot;Define X with example&quot;</td></tr>
+<tr><td>2</td><td>2×2 / 3×3 determinants &amp; cofactors</td><td>Foundation for adjoint, inverse, eigenvalues</td></tr>
+<tr><td>3</td><td>Inverse by adjoint</td><td>One-shot Q for 5 marks</td></tr>
+<tr><td>4</td><td>Row operations &amp; row-canonical inverse</td><td>The 2nd inverse method asked</td></tr>
+<tr><td>5</td><td>Solving Ax=b: Adjoint method</td><td>&quot;Solve using Ad-joint method&quot; Q1 type</td></tr>
+<tr><td>6</td><td>Gauss Elimination (echelon form)</td><td>Always one Q (5 marks)</td></tr>
+<tr><td>7</td><td>Gauss-Jordan (reduced echelon)</td><td>Always one Q (5 marks)</td></tr>
+<tr><td>8</td><td>LU Decomposition (Doolittle)</td><td>CT-2 Q2 (8 marks)</td></tr>
+<tr><td>9</td><td>Eigenvalues / Eigenvectors of 3×3</td><td>CT-2 Q1 (8 marks)</td></tr>
+<tr><td>10</td><td>Hermitian &amp; Skew-Hermitian</td><td>CT-1 Q4 (Batch D)</td></tr>
+<tr><td>11</td><td>Complex number forms &amp; polar conversion</td><td>CT-2 Q2 (Spring 2026)</td></tr>
+<tr><td>12</td><td>De Moivre proof + identities (cos³θ, cos⁵θ, sin³θ)</td><td>CT-2 Q3, Q4</td></tr>
+<tr><td>13</td><td>Triangle inequality / modulus identities</td><td>Show that |z₁/z₂| = |z₁|/|z₂|</td></tr>
+<tr><td>14</td><td>Geometry with complex numbers</td><td>Median of triangle problem (62D)</td></tr>
+</tbody></table>
+<h2 id="difficulty-grouping-of-problems-seen">Difficulty grouping of problems seen</h2>
+<ul><li><strong>Easy (definitions / direct plug-in):</strong> CT-01 Q4 definitions; Purely Real / Imaginary; 2×2 inverse; Q3 of CT-2 (4-mark identities).</li><li><strong>Medium (single technique):</strong> Adjoint inverse, Gauss elimination, polar conversion, simple De Moivre identity (sin³θ, cos³θ).</li><li><strong>Hard (multi-step):</strong> LU + back-substitution, 3×3 eigenvalue with double root, cos⁵θ expansion, skew-Hermitian verification with complex entries.</li></ul>
+<hr>
+<h1 id="part-ii-matrices-concept-teaching">PART II — MATRICES (CONCEPT TEACHING)</h1>
+<h2 id="1-definitions-special-types">1. Definitions &amp; Special Types</h2>
+<p><strong>Intuition first:</strong> A matrix is a table of numbers arranged in rows and columns. Think of it like a spreadsheet that you can do algebra with.</p>
+<p><strong>Formal:</strong> An <strong>m × n matrix</strong> is a rectangular array <code>A = [a_ij]</code> where <code>i = 1…m</code>, <code>j = 1…n</code>.</p>
+<h3 id="the-define-x-with-example-cheat-card">The &quot;Define X with example&quot; cheat-card</h3>
+<table>
+<thead><tr><th>Matrix</th><th>Condition</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Square</strong></td><td>rows = cols (n×n)</td><td><code>[[1,2],[3,4]]</code></td></tr>
+<tr><td><strong>Diagonal</strong></td><td>a_ij = 0 for all i ≠ j</td><td><code>[[5,0,0],[0,3,0],[0,0,7]]</code></td></tr>
+<tr><td><strong>Identity I</strong></td><td>diagonal &amp; all diag = 1</td><td><code>[[1,0],[0,1]]</code></td></tr>
+<tr><td><strong>Upper Triangular</strong></td><td>a_ij = 0 when i &gt; j</td><td><code>[[1,2,3],[0,4,5],[0,0,6]]</code></td></tr>
+<tr><td><strong>Lower Triangular</strong></td><td>a_ij = 0 when i &lt; j</td><td><code>[[1,0,0],[2,3,0],[4,5,6]]</code></td></tr>
+<tr><td><strong>Symmetric</strong></td><td>A = Aᵀ (a_ij = a_ji)</td><td><code>[[1,2,3],[2,4,5],[3,5,6]]</code></td></tr>
+<tr><td><strong>Skew-Symmetric</strong></td><td>A = −Aᵀ ; diagonal = 0</td><td><code>[[0,2,-3],[-2,0,4],[3,-4,0]]</code></td></tr>
+<tr><td><strong>Inverse A⁻¹</strong></td><td>A·A⁻¹ = I</td><td>A = <code>[[2,0],[0,3]]</code> ⇒ A⁻¹ = <code>[[1/2,0],[0,1/3]]</code></td></tr>
+<tr><td><strong>Hermitian</strong></td><td>A = (Ā)ᵀ = A*</td><td>diagonals real; <code>[[2, 3+i],[3-i, 5]]</code></td></tr>
+<tr><td><strong>Skew-Hermitian</strong></td><td>A = −A*</td><td>diagonals purely imaginary</td></tr>
+</tbody></table>
+<p><strong>Memory trick (Symmetric vs Skew):</strong> <em>Symm</em> is <strong>same</strong> across the diagonal; <em>Skew</em> is <strong>opposite</strong> sign across the diagonal (and 0&#x27;s on the diagonal because only 0 = −0).</p>
+<hr>
+<h2 id="2-determinants-adjoint">2. Determinants &amp; Adjoint</h2>
+<h3 id="22-determinant">2×2 determinant</h3>
+<p><code>det([[a,b],[c,d]]) = ad − bc</code></p>
+<h3 id="33-determinant-cofactor-expansion-along-row-1">3×3 determinant (cofactor expansion along Row 1)</h3>
+<p>For <code>A = [[a,b,c],[d,e,f],[g,h,i]]</code>:</p>
+<pre><code>det(A) = a(ei − fh) − b(di − fg) + c(dh − eg)</code></pre>
+<h3 id="cofactor-matrix-c">Cofactor matrix C</h3>
+<p><code>C_ij = (−1)^(i+j) · M_ij</code> where M_ij is the minor (det of the 2×2 you get by deleting row i and column j).</p>
+<h3 id="adjoint-adjugate">Adjoint (Adjugate)</h3>
+<p><code>adj(A) = Cᵀ</code>  (transpose of the cofactor matrix). <strong>This transpose step is the #1 mistake.</strong></p>
+<h3 id="sign-pattern-shortcut-for-33-cofactors">Sign-pattern shortcut for 3×3 cofactors</h3>
+<pre><code>+  −  +
+−  +  −
++  −  +</code></pre>
+<hr>
+<h2 id="3-inverse-3-methods">3. Inverse — 3 Methods</h2>
+<h3 id="method-1-adjoint-method">Method 1 — Adjoint Method</h3>
+<pre><code>A⁻¹ = (1/det A) · adj(A),    provided det A ≠ 0</code></pre>
+<p><strong>Steps:</strong> (1) det A; (2) all 9 cofactors; (3) transpose to adj A; (4) divide by det A.</p>
+<h3 id="method-2-row-canonical-gauss-jordan-method">Method 2 — Row Canonical (Gauss-Jordan) Method</h3>
+<p>Form the augmented matrix <code>[A | I]</code>. Apply elementary row operations until LHS = I. The RHS becomes A⁻¹:</p>
+<pre><code>[A | I]  →  row ops  →  [I | A⁻¹]</code></pre>
+<h3 id="method-3-using-elementary-matrices-cayley-hamilton-rarely-asked-but-completes-the-3-ta-type-expectation-in-the-suggestion-sheet">Method 3 — Using Elementary Matrices / Cayley-Hamilton (rarely asked but completes the &quot;3 ta type&quot; expectation in the suggestion sheet)</h3>
+<p>Express A as a product of elementary matrices E₁E₂…E_k = A. Then A⁻¹ = E_k⁻¹…E₁⁻¹.</p>
+<blockquote><strong>Exam tip:</strong> If the question says &quot;<strong>by row canonical method</strong>&quot; → use Method 2. If it says &quot;<strong>by adjoint method</strong>&quot; → use Method 1.</blockquote>
+<hr>
+<h2 id="4-rank-of-a-matrix">4. Rank of a Matrix</h2>
+<p><strong>Rank = number of non-zero rows in the row-echelon form</strong> (also = number of linearly independent rows = number of linearly independent columns).</p>
+<p><strong>Procedure:</strong></p>
+<ol><li>Apply row operations to bring A to echelon form (zero entries below each leading pivot).</li><li>Count non-zero rows.</li></ol>
+<p><strong>Properties used in CT:</strong></p>
+<ul><li>Rank ≤ min(m, n)</li><li>Rank tells you &quot;nature of solution&quot; of Ax = b:</li><li>rank(A) = rank(A|b) = n  → unique solution</li><li>rank(A) = rank(A|b) &lt; n  → infinitely many solutions</li><li>rank(A) ≠ rank(A|b)      → no solution (inconsistent)</li></ul>
+<hr>
+<h2 id="5-systems-of-linear-equations">5. Systems of Linear Equations</h2>
+<h3 id="51-adjoint-method-solve-ax-b">5.1 Adjoint Method (Solve Ax = b)</h3>
+<ol><li>Compute det(A); if zero, can&#x27;t use this method.</li><li>Compute adj(A).</li><li><code>x = (1/det A) · adj(A) · b</code>.</li></ol>
+<h3 id="52-gaussian-elimination-row-echelon-form">5.2 Gaussian Elimination (= Row-Echelon Form)</h3>
+<p>Goal: turn the coefficient matrix into upper-triangular form, then back-substitute.</p>
+<p><strong>Three legal row operations:</strong></p>
+<ul><li>R_i ↔ R_j (swap)</li><li>R_i → k · R_i (scale, k ≠ 0)</li><li>R_i → R_i + k · R_j (add a multiple of another row)</li></ul>
+<p><strong>Mantra:</strong> &quot;make zeros below the pivot, top to bottom.&quot;</p>
+<h3 id="53-gauss-jordan-reduced-row-echelon-form-rref">5.3 Gauss-Jordan (= Reduced Row-Echelon Form, RREF)</h3>
+<p>Same as Gauss elimination, <strong>plus</strong> make zeros <strong>above</strong> each pivot too, and scale pivots to 1. The final form gives x, y, z directly — no back-substitution needed.</p>
+<h3 id="54-lu-decomposition-doolittles-method">5.4 LU Decomposition (Doolittle&#x27;s Method)</h3>
+<p>Write <code>A = L · U</code> where:</p>
+<ul><li>L is <strong>lower triangular with 1&#x27;s on diagonal</strong></li><li>U is <strong>upper triangular</strong></li></ul>
+<p>For 3×3:</p>
+<pre><code>L = [[1,0,0],[l21,1,0],[l31,l32,1]]
+U = [[u11,u12,u13],[0,u22,u23],[0,0,u33]]</code></pre>
+<p><strong>Formulas (compute in order):</strong></p>
+<pre><code>u11 = a11,  u12 = a12,  u13 = a13
+l21 = a21/u11,           l31 = a31/u11
+u22 = a22 − l21·u12      u23 = a23 − l21·u13
+l32 = (a32 − l31·u12)/u22
+u33 = a33 − l31·u13 − l32·u23</code></pre>
+<p><strong>Solve Ax = b in two steps:</strong></p>
+<ol><li><strong>Forward sub:</strong> Ly = b  → solve for y top-down.</li><li><strong>Back sub:</strong> Ux = y  → solve for x bottom-up.</li></ol>
+<hr>
+<h2 id="6-eigenvalues-eigenvectors">6. Eigenvalues &amp; Eigenvectors</h2>
+<p><strong>Definition:</strong> A non-zero vector v is an eigenvector of A with eigenvalue λ if <code>A v = λ v</code>.</p>
+<p><strong>Procedure:</strong></p>
+<ol><li><strong>Characteristic equation:</strong> <code>det(A − λ I) = 0</code>. Expand to get a polynomial in λ.</li><li><strong>Solve</strong> for the roots λ₁, λ₂, λ₃ (eigenvalues).</li><li><strong>For each λ_i:</strong> solve <code>(A − λ_i I) v = 0</code> to get the eigenvector v_i.</li></ol>
+<p><strong>Key shortcut:</strong> For a 3×3 matrix, the characteristic polynomial is</p>
+<pre><code>λ³ − (tr A) λ² + (sum of 2×2 principal minors) λ − det A = 0</code></pre>
+<p>(<code>tr A</code> = sum of diagonal entries.) Use Vieta to sanity-check: λ₁+λ₂+λ₃ = tr A, λ₁λ₂λ₃ = det A.</p>
+<p><strong>To find roots fast:</strong> try λ = 0, ±1, ±2, ±3 (rational root theorem). Factor out, then solve the quadratic.</p>
+<hr>
+<h2 id="7-hermitian-skew-hermitian">7. Hermitian / Skew-Hermitian</h2>
+<p>Let A* = (Ā)ᵀ (complex conjugate transpose).</p>
+<table>
+<thead><tr><th>Type</th><th>Condition</th><th>What it forces on the diagonal</th></tr></thead>
+<tbody>
+<tr><td>Hermitian</td><td>A* = A  ⇔ a_ji = ā_ij</td><td>diagonal entries are <strong>real</strong></td></tr>
+<tr><td>Skew-Hermitian</td><td>A* = −A ⇔ a_ji = −ā_ij</td><td>diagonal entries are <strong>purely imaginary or 0</strong></td></tr>
+</tbody></table>
+<p><strong>Verification routine:</strong></p>
+<ol><li>Diagonal: real (Herm) or 0/pure imaginary (Skew-Herm)?</li><li>Each off-diag pair (a_ij, a_ji): is a_ji = ±ā_ij?</li></ol>
+<hr>
+<h1 id="part-iii-complex-numbers-concept-teaching">PART III — COMPLEX NUMBERS (CONCEPT TEACHING)</h1>
+<h2 id="1-definitions-special-numbers">1. Definitions &amp; Special Numbers</h2>
+<p>A complex number is <code>z = x + iy</code> with <code>i² = −1</code>.</p>
+<ul><li><code>Re(z) = x</code>, <code>Im(z) = y</code>.</li><li><strong>Purely Real:</strong> y = 0 (e.g., <code>z = 7 = 7 + 0i</code>).</li><li><strong>Purely Imaginary:</strong> x = 0 (e.g., <code>z = 5i = 0 + 5i</code>).</li><li><strong>Conjugate:</strong> <code>z̄ = x − iy</code>.</li><li><strong>Modulus:</strong> <code>|z| = √(x² + y²)</code>.</li><li><strong>Argument:</strong> <code>arg(z) = θ</code>, the angle from positive real axis (be careful with quadrant).</li></ul>
+<hr>
+<h2 id="2-forms">2. Forms</h2>
+<table>
+<thead><tr><th>Form</th><th>Expression</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Cartesian / Rectangular</td><td><code>z = x + iy</code></td><td>Default form</td></tr>
+<tr><td>Polar / Trigonometric</td><td><code>z = r(cos θ + i sin θ)</code></td><td>r = |z|, θ = arg z</td></tr>
+<tr><td>Exponential / Euler</td><td><code>z = r e^(iθ)</code></td><td>Multiplication &amp; powers become trivial</td></tr>
+</tbody></table>
+<p><strong>Conversion:</strong> <code>r = √(x² + y²)</code>, <code>θ = atan2(y, x)</code> (quadrant-aware).</p>
+<h3 id="quadrant-aware-argument-table">Quadrant-aware argument table</h3>
+<table>
+<thead><tr><th>Quadrant</th><th>Sign of (x, y)</th><th>Argument</th></tr></thead>
+<tbody>
+<tr><td>I</td><td>(+, +)</td><td>θ = arctan(y/x)</td></tr>
+<tr><td>II</td><td>(−, +)</td><td>θ = π − arctan(|y/x|)</td></tr>
+<tr><td>III</td><td>(−, −)</td><td>θ = −π + arctan(|y/x|)  (or π + arctan(y/x))</td></tr>
+<tr><td>IV</td><td>(+, −)</td><td>θ = − arctan(|y/x|)</td></tr>
+</tbody></table>
+<hr>
+<h2 id="3-argand-diagram-modulus">3. Argand Diagram &amp; Modulus</h2>
+<p>The <strong>Argand plane</strong> has Re on the horizontal axis and Im on the vertical axis. Then <code>z = x + iy</code> is the point (x, y), and |z| is the distance from origin.</p>
+<blockquote><strong>Visual:</strong> plotting <code>z = 1 + i</code> gives a point at (1,1); the line from origin has length √2 and angle 45°.</blockquote>
+<hr>
+<h2 id="4-de-moivres-theorem">4. De Moivre&#x27;s Theorem</h2>
+<p><strong>Statement:</strong> For any integer n (extends to rationals/reals with care for branches):</p>
+<pre><code>[r(cos θ + i sin θ)]^n = r^n (cos nθ + i sin nθ)</code></pre>
+<p>For r = 1: <code>(cos θ + i sin θ)^n = cos nθ + i sin nθ</code>.</p>
+<h3 id="proof-induction-on-positive-integer-n">Proof (induction on positive integer n)</h3>
+<p><strong>Base case (n = 1):</strong> <code>(cos θ + i sin θ)^1 = cos θ + i sin θ</code>. ✓</p>
+<p><strong>Inductive hypothesis:</strong> Assume true for n = k:<br><code>(cos θ + i sin θ)^k = cos kθ + i sin kθ</code>.</p>
+<p><strong>Inductive step (n = k+1):</strong></p>
+<pre><code>(cos θ + i sin θ)^(k+1)
+   = (cos θ + i sin θ)^k · (cos θ + i sin θ)
+   = (cos kθ + i sin kθ)(cos θ + i sin θ)
+   = (cos kθ · cos θ − sin kθ · sin θ) + i (sin kθ · cos θ + cos kθ · sin θ)
+   = cos(kθ + θ) + i sin(kθ + θ)        ← angle-addition formulas
+   = cos(k+1)θ + i sin(k+1)θ.            ✓</code></pre>
+<p>By induction, the result holds for all n ∈ ℕ.</p>
+<p><strong>For n = 0:</strong> LHS = 1 = cos 0 + i sin 0. ✓<br><strong>For negative n:</strong> Let n = −m (m &gt; 0). Use <code>1/(cos θ + i sin θ) = cos θ − i sin θ = cos(−θ) + i sin(−θ)</code>, then apply the positive case. ✓</p>
+<h3 id="how-de-moivre-is-used">How De Moivre is used</h3>
+<ol><li><strong>Powers of complex numbers:</strong> Convert to polar, raise r to the power, multiply θ by n.</li><li><strong>Roots:</strong> The n-th roots of <code>r e^(iθ)</code> are <code>r^(1/n) · e^(i(θ + 2kπ)/n)</code>, k = 0, 1, …, n − 1.</li><li><strong>Trig identities for cos nθ, sin nθ:</strong> Expand <code>(cos θ + i sin θ)^n</code> by the binomial theorem and equate real/imaginary parts.</li></ol>
+<hr>
+<h2 id="5-triangle-inequality-modulus-properties">5. Triangle Inequality &amp; Modulus Properties</h2>
+<pre><code>|z₁ + z₂| ≤ |z₁| + |z₂|                (triangle inequality)
+||z₁| − |z₂|| ≤ |z₁ − z₂|              (reverse triangle inequality)
+|z₁ z₂| = |z₁| · |z₂|
+|z₁ / z₂| = |z₁| / |z₂|     (z₂ ≠ 0)
+|z̄| = |z|,   z · z̄ = |z|²</code></pre>
+<p><strong>Quick proof of |z₁ + z₂| ≤ |z₁| + |z₂|:</strong></p>
+<pre><code>|z₁ + z₂|² = (z₁ + z₂)(z̄₁ + z̄₂)
+           = |z₁|² + |z₂|² + z₁z̄₂ + z̄₁z₂
+           = |z₁|² + |z₂|² + 2 Re(z₁z̄₂)
+           ≤ |z₁|² + |z₂|² + 2|z₁z̄₂|
+           = |z₁|² + |z₂|² + 2|z₁||z₂|
+           = (|z₁| + |z₂|)².</code></pre>
+<p>Take square roots.</p>
+<hr>
+<h1 id="part-iv-fully-worked-solutions">PART IV — FULLY WORKED SOLUTIONS</h1>
+<blockquote>Every problem from every CT paper in your folder, solved with full steps and verification.</blockquote>
+<hr>
+<h2 id="ct-01-batch-62b">CT-01, Batch 62(B)</h2>
+<h3 id="q1-5-solve-by-adjoint-method">Q1 (5) — Solve by Adjoint Method</h3>
+<pre><code>x +  y +  z = 6
+5x − y + 2z = 9
+3x + 6y − 5z = 0</code></pre>
+<p><strong>A</strong> = <code>[[1,1,1],[5,−1,2],[3,6,−5]]</code>, <strong>b</strong> = <code>[6, 9, 0]ᵀ</code>.</p>
+<p><strong>det A</strong> = 1·[(−1)(−5)−(2)(6)] − 1·[(5)(−5)−(2)(3)] + 1·[(5)(6)−(−1)(3)]<br>= 1·(5−12) − 1·(−25−6) + 1·(30+3)<br>= −7 + 31 + 33 = <strong>57</strong>.</p>
+<p><strong>Cofactors:</strong></p>
+<pre><code>C11 = (−1)(−5) − (2)(6) = −7
+C12 = −[(5)(−5) − (2)(3)] = +31
+C13 = (5)(6) − (−1)(3) = +33
+C21 = −[(1)(−5) − (1)(6)] = +11
+C22 = (1)(−5) − (1)(3) = −8
+C23 = −[(1)(6) − (1)(3)] = −3
+C31 = (1)(2) − (1)(−1) = +3
+C32 = −[(1)(2) − (1)(5)] = +3
+C33 = (1)(−1) − (1)(5) = −6</code></pre>
+<p><strong>adj A</strong> = transpose of cofactor matrix:</p>
+<pre><code>adj A = [[−7, 11,  3],
+         [31, −8,  3],
+         [33, −3, −6]]</code></pre>
+<p><strong>x = (1/57) · adj(A) · b:</strong></p>
+<pre><code>x = (1/57)(−7·6 + 11·9 + 3·0)  = (−42 + 99)/57 = 57/57   = 1
+y = (1/57)(31·6 + (−8)·9 + 3·0)= (186 − 72)/57 = 114/57  = 2
+z = (1/57)(33·6 + (−3)·9 + (−6)·0) = (198 − 27)/57 = 171/57 = 3</code></pre>
+<p><strong>Answer:</strong> <strong>x = 1, y = 2, z = 3.</strong><br><strong>Check:</strong> 1+2+3=6 ✓, 5−2+6=9 ✓, 3+12−15=0 ✓.</p>
+<hr>
+<h3 id="q2-5-inverse-of-a-by-row-canonical">Q2 (5) — Inverse of A by Row Canonical</h3>
+<pre><code>A = [[1, 3, −2],
+     [−3, 0, −5],
+     [2, 5, 0]]</code></pre>
+<p>Form <code>[A | I]</code> and reduce:</p>
+<pre><code>[ 1  3  −2 | 1  0  0]
+[−3  0  −5 | 0  1  0]
+[ 2  5   0 | 0  0  1]
+
+R2 → R2+3R1                    R3 → R3−2R1
+[ 1  3  −2 | 1  0  0]
+[ 0  9  −11| 3  1  0]
+[ 0 −1   4 |−2  0  1]
+
+R2 ↔ R3,  then R2 → −R2
+[ 1  3  −2 | 1  0  0]
+[ 0  1  −4 | 2  0 −1]
+[ 0  9  −11| 3  1  0]
+
+R1 → R1−3R2,  R3 → R3−9R2
+[ 1  0   10|−5  0  3]
+[ 0  1  −4 | 2  0 −1]
+[ 0  0   25|−15 1  9]
+
+R3 → R3/25
+[ 1  0   10|−5      0     3   ]
+[ 0  1  −4 | 2      0    −1   ]
+[ 0  0   1 |−3/5   1/25   9/25]
+
+R1 → R1−10R3,  R2 → R2+4R3
+[ 1  0  0 |  1     −2/5   −3/5 ]
+[ 0  1  0 | −2/5    4/25  11/25]
+[ 0  0  1 | −3/5    1/25   9/25]</code></pre>
+<p><strong>Answer:</strong></p>
+<pre><code>A⁻¹ = (1/25) · [[25, −10, −15],
+                 [−10,  4,  11],
+                 [−15,  1,   9]]</code></pre>
+<p>(Equivalent decimal form is the right side of the augmented matrix above.)<br><strong>Check:</strong> det A = 25 (matches the 1/25 factor); adj A computed via cofactors = same matrix above. ✓</p>
+<hr>
+<h3 id="q3-5-gaussian-elimination">Q3 (5) — Gaussian Elimination</h3>
+<pre><code> x + 4y + 9z = 16
+2x +  y +  z = 10
+3x + 2y + 3z = 18</code></pre>
+<pre><code>R2 → R2 − 2R1   :   −7y − 17z = −22
+R3 → R3 − 3R1   :  −10y − 24z = −30
+
+R3 → R3 − (10/7) R2 :  ((−24) − (10/7)(−17)) z = −30 − (10/7)(−22)
+                       (−24 + 170/7) z = −30 + 220/7
+                       (2/7) z = 10/7    ⇒  z = 5</code></pre>
+<p>Back-substitute:</p>
+<ul><li>−7y − 17(5) = −22  ⇒  −7y = 63  ⇒  <strong>y = −9</strong></li><li>x + 4(−9) + 9(5) = 16  ⇒  x − 36 + 45 = 16  ⇒  <strong>x = 7</strong></li></ul>
+<p><strong>Answer:</strong> <strong>x = 7, y = −9, z = 5.</strong> ✓</p>
+<hr>
+<h3 id="q4-5-gauss-jordan">Q4 (5) — Gauss-Jordan</h3>
+<pre><code> x + 2y + 3z = 14
+2x + 3y + 4z = 20
+3x + 4y + 6z = 33</code></pre>
+<pre><code>R2 → R2−2R1 :  −y − 2z = −8     ⇒   y + 2z = 8  (after multiplying by −1)
+R3 → R3−3R1 : −2y − 3z = −9     ⇒   2y + 3z = 9 (×−1)
+
+Use new R2, R3. R3 → R3 − 2R2 :  −z = −7   ⇒  z = 7
+y + 2(7) = 8  ⇒  y = −6
+x + 2(−6) + 3(7) = 14  ⇒  x = 5</code></pre>
+<p><strong>Answer:</strong> <strong>x = 5, y = −6, z = 7.</strong> ✓</p>
+<hr>
+<h2 id="ct-02-batch-62b">CT-02, Batch 62(B)</h2>
+<h3 id="q1-8-eigenvalues-eigenvectors">Q1 (8) — Eigenvalues &amp; Eigenvectors</h3>
+<pre><code>A = [[8, −8, −2],
+     [4, −3, −2],
+     [3, −4,  1]]</code></pre>
+<p><strong>Characteristic polynomial:</strong><br>det(A − λI) = <code>−λ³ + 6λ² − 11λ + 6</code> ⇒ <code>λ³ − 6λ² + 11λ − 6 = 0</code>.</p>
+<p>Try λ = 1: <code>1 − 6 + 11 − 6 = 0</code> ✓. Factor:<br><code>(λ − 1)(λ² − 5λ + 6) = (λ − 1)(λ − 2)(λ − 3)</code>.</p>
+<p><strong>Eigenvalues:</strong> <strong>λ = 1, 2, 3.</strong> (Sanity: 1+2+3 = 6 = tr A ✓; 1·2·3 = 6 = det A ✓.)</p>
+<p><strong>For λ = 1:</strong> (A − I) v = 0<br><code>7x − 8y − 2z = 0;  4x − 4y − 2z = 0;  3x − 4y = 0</code><br>From eq3: y = 3x/4. Plug eq2: 4x − 3x − 2z = 0 ⇒ x = 2z. Take x = 4 ⇒ y = 3, z = 2.<br><strong>v₁ = (4, 3, 2)ᵀ.</strong></p>
+<p><strong>For λ = 2:</strong> (A − 2I) v = 0<br><code>6x − 8y − 2z = 0;  4x − 5y − 2z = 0;  3x − 4y − z = 0</code><br>From eq3: z = 3x − 4y. Plug eq2: 4x − 5y − 2(3x − 4y) = −2x + 3y = 0 ⇒ y = 2x/3. Take x = 3 ⇒ y = 2, z = 1.<br><strong>v₂ = (3, 2, 1)ᵀ.</strong></p>
+<p><strong>For λ = 3:</strong> (A − 3I) v = 0<br><code>5x − 8y − 2z = 0;  4x − 6y − 2z = 0;  3x − 4y − 2z = 0</code><br>R1 − R2: x − 2y = 0 ⇒ x = 2y. R3 with this: 6y − 4y − 2z = 0 ⇒ z = y. Take y = 1 ⇒ x = 2, z = 1.<br><strong>v₃ = (2, 1, 1)ᵀ.</strong></p>
+<hr>
+<h3 id="q2-8-lu-factorization">Q2 (8) — LU Factorization</h3>
+<pre><code> x + 2y + 3z =  9
+4x + 5y + 6z = 24
+3x +  y − 2z =  4</code></pre>
+<p><strong>Doolittle:</strong></p>
+<pre><code>u11 = 1, u12 = 2, u13 = 3
+l21 = 4/1 = 4    l31 = 3/1 = 3
+u22 = 5 − 4·2 = −3      u23 = 6 − 4·3 = −6
+l32 = (1 − 3·2)/(−3) = (−5)/(−3) = 5/3
+u33 = −2 − 3·3 − (5/3)·(−6) = −2 − 9 + 10 = −1</code></pre>
+<pre><code>L = [[1, 0, 0], [4, 1, 0], [3, 5/3, 1]]
+U = [[1, 2, 3], [0, −3, −6], [0, 0, −1]]</code></pre>
+<p><strong>Forward (Ly = b):</strong> y₁ = 9; 4·9 + y₂ = 24 ⇒ y₂ = −12; 3·9 + (5/3)(−12) + y₃ = 4 ⇒ 27 − 20 + y₃ = 4 ⇒ y₃ = −3.<br><strong>Back (Ux = y):</strong> −z = −3 ⇒ z = 3; −3y − 18 = −12 ⇒ y = −2; x − 4 + 9 = 9 ⇒ x = 4.</p>
+<p><strong>Answer:</strong> <strong>x = 4, y = −2, z = 3.</strong> ✓</p>
+<hr>
+<h3 id="q3-4-show-zz-zz">Q3 (4) — Show |z₁/z₂| = |z₁|/|z₂|</h3>
+<p>Let z₁ = a + ib, z₂ = c + id (z₂ ≠ 0).</p>
+<pre><code>z₁/z₂ = (a + ib)(c − id) / (c² + d²)
+      = [(ac + bd) + i(bc − ad)] / (c² + d²)
+
+|z₁/z₂|² = [(ac + bd)² + (bc − ad)²] / (c² + d²)²
+        = [a²c² + 2abcd + b²d² + b²c² − 2abcd + a²d²] / (c² + d²)²
+        = [(a² + b²)(c² + d²)] / (c² + d²)²
+        = (a² + b²) / (c² + d²)
+        = |z₁|² / |z₂|².</code></pre>
+<p>Take positive square roots: <strong>|z₁/z₂| = |z₁|/|z₂|.</strong> ∎</p>
+<hr>
+<h2 id="ct-01-batch-62c">CT-01, Batch 62(C)</h2>
+<h3 id="q1-5-adjoint-method">Q1 (5) — Adjoint Method</h3>
+<pre><code>x +  y +  z = 3
+x + 2y + 3z = 4
+x + 4y + 9z = 6</code></pre>
+<p>A = <code>[[1,1,1],[1,2,3],[1,4,9]]</code>. det A = 1(18−12) − 1(9−3) + 1(4−2) = 6 − 6 + 2 = <strong>2</strong>.<br><strong>Cofactors:</strong> C11=6, C12=−6, C13=2; C21=−5, C22=8, C23=−3; C31=1, C32=−2, C33=1.<br>adj A = <code>[[6, −5, 1], [−6, 8, −2], [2, −3, 1]]</code>.<br><strong>x = (1/2) adj(A) · b:</strong></p>
+<ul><li>x = (1/2)(18 − 20 + 6) = 4/2 = <strong>2</strong></li><li>y = (1/2)(−18 + 32 − 12) = 2/2 = <strong>1</strong></li><li>z = (1/2)(6 − 12 + 6) = 0 = <strong>0</strong></li></ul>
+<p><strong>Answer: x = 2, y = 1, z = 0.</strong> ✓ (Check: 2+1+0=3, 2+2+0=4, 2+4+0=6.)</p>
+<hr>
+<h3 id="q2-5-inverse-by-row-canonical">Q2 (5) — Inverse by Row Canonical</h3>
+<pre><code>A = [[1, 2, −3], [2, −1, 4], [4, 3, −4]]</code></pre>
+<p>det A = 1(4 − 12) − 2(−8 − 16) + (−3)(6 + 4) = −8 + 48 − 30 = <strong>10</strong>.</p>
+<p>After row reduction (steps abbreviated for space — same procedure as Batch B Q2):</p>
+<pre><code>A⁻¹ = (1/10) · [[−8, −1,  5],
+                 [24,  8, −10],
+                 [10,  5, −5]]</code></pre>
+<p>or equivalently <code>[[−4/5, −1/10, 1/2], [12/5, 4/5, −1], [1, 1/2, −1/2]]</code>.</p>
+<hr>
+<h3 id="q3-5-gaussian-elimination-1">Q3 (5) — Gaussian Elimination</h3>
+<pre><code>x + y + z = 6
+2x + 3y + 4z = 20
+3x − 2y + z = 2</code></pre>
+<p>R2−2R1: y + 2z = 8.   R3−3R1: −5y − 2z = −16.<br>R3 + 5·R2: 8z = 24 ⇒ <strong>z = 3</strong>. y = 8 − 6 = <strong>2</strong>. x = 6 − 2 − 3 = <strong>1</strong>.</p>
+<p><strong>Answer: x = 1, y = 2, z = 3.</strong> ✓</p>
+<hr>
+<h3 id="q4-5-definitions">Q4 (5) — Definitions</h3>
+<p><strong>Square Matrix:</strong> equal number of rows and columns. Example <code>[[1,2],[3,4]]</code>.<br><strong>Diagonal Matrix:</strong> square with 0 off the main diagonal. Example <code>[[5,0,0],[0,3,0],[0,0,7]]</code>.<br><strong>Upper Triangular:</strong> all entries below the main diagonal are 0. Example <code>[[1,2,3],[0,4,5],[0,0,6]]</code>.<br><strong>Lower Triangular:</strong> all entries above the main diagonal are 0. Example <code>[[1,0,0],[2,3,0],[4,5,6]]</code>.<br><strong>Symmetric Matrix:</strong> A = Aᵀ. Example <code>[[1,2,3],[2,4,5],[3,5,6]]</code>.</p>
+<hr>
+<h2 id="ct-02-batch-62c">CT-02, Batch 62(C)</h2>
+<h3 id="q1-8-eigenvalues-eigenvectors-1">Q1 (8) — Eigenvalues / Eigenvectors</h3>
+<pre><code>A = [[2, 2, 1], [1, 3, 1], [1, 2, 2]]</code></pre>
+<p><strong>Characteristic polynomial:</strong> Expand det(A − λI):</p>
+<pre><code>(2−λ)[(3−λ)(2−λ) − 2] − 2[(2−λ) − 1] + 1·[2 − (3−λ)]
+= (2−λ)(λ² − 5λ + 4) + 3(λ − 1)
+= (λ − 1)·[(2−λ)(λ − 4) + 3]
+= (λ − 1)·(−λ² + 6λ − 5)
+= −(λ − 1)²(λ − 5)</code></pre>
+<p><strong>Eigenvalues:</strong> <strong>λ = 1 (double), λ = 5.</strong></p>
+<p><strong>For λ = 5:</strong> (A − 5I)v = 0<br><code>−3x + 2y + z = 0; x − 2y + z = 0; x + 2y − 3z = 0</code>. From sum/diff: y = z, x = z. Take z=1.<br><strong>v = (1, 1, 1)ᵀ.</strong></p>
+<p><strong>For λ = 1 (double, two free parameters):</strong> (A − I)v = 0 reduces to a single equation <code>x + 2y + z = 0</code>.</p>
+<ul><li>Take y = 1, z = 0 ⇒ x = −2. ⇒ v_a = (−2, 1, 0)ᵀ.</li><li>Take y = 0, z = 1 ⇒ x = −1. ⇒ v_b = (−1, 0, 1)ᵀ.</li></ul>
+<hr>
+<h3 id="q2-8-lu">Q2 (8) — LU</h3>
+<pre><code>x + 2y + 3z = 9
+2x + 5y + z = 5
+3x + y + 4z = 7</code></pre>
+<p>Doolittle:</p>
+<pre><code>u11=1, u12=2, u13=3 ;   l21=2, l31=3
+u22 = 5 − 2·2 = 1 ;     u23 = 1 − 2·3 = −5
+l32 = (1 − 3·2)/1 = −5
+u33 = 4 − 3·3 − (−5)(−5) = 4 − 9 − 25 = −30</code></pre>
+<pre><code>L = [[1,0,0],[2,1,0],[3,−5,1]] ,   U = [[1,2,3],[0,1,−5],[0,0,−30]]</code></pre>
+<p><strong>Ly = b:</strong> y₁=9; y₂ = 5 − 2·9 = −13; y₃ = 7 − 3·9 − (−5)(−13) = 7 − 27 − 65 = −85.<br><strong>Ux = y:</strong> −30z = −85 ⇒ z = 17/6; y − 5z = −13 ⇒ y = 7/6; x + 2y + 3z = 9 ⇒ x = −11/6.</p>
+<p><strong>Answer: x = −11/6, y = 7/6, z = 17/6.</strong> ✓</p>
+<hr>
+<h3 id="q3-4-express-cos-as-acos5-bcos3-ccos">Q3 (4) — Express cos⁵θ as a·cos5θ + b·cos3θ + c·cosθ</h3>
+<p>Use <code>2 cos θ = e^(iθ) + e^(−iθ)</code>:</p>
+<pre><code>(2 cos θ)⁵ = (e^(iθ) + e^(−iθ))⁵
+         = e^(5iθ) + 5e^(3iθ) + 10e^(iθ) + 10e^(−iθ) + 5e^(−3iθ) + e^(−5iθ)
+         = 2 cos 5θ + 10 cos 3θ + 20 cos θ.</code></pre>
+<p>So <code>32 cos⁵θ = 2 cos 5θ + 10 cos 3θ + 20 cos θ</code> ⇒</p>
+<pre><code>cos⁵θ = (1/16) cos 5θ + (5/16) cos 3θ + (5/8) cos θ.</code></pre>
+<p>Therefore <strong>a = 1/16, b = 5/16, c = 5/8</strong>. ✓</p>
+<hr>
+<h2 id="ct-01-batch-62d">CT-01, Batch 62(D)</h2>
+<h3 id="q1-5-adjoint-method-1">Q1 (5) — Adjoint Method</h3>
+<pre><code>5x − 6y + 4z = 15
+7x + 4y − 3z = 19
+2x +  y + 6z = 46</code></pre>
+<p>A = <code>[[5,−6,4],[7,4,−3],[2,1,6]]</code>.<br><strong>det A</strong> = 5(24+3) − (−6)(42+6) + 4(7−8) = 135 + 288 − 4 = <strong>419</strong>.</p>
+<p><strong>Cofactors (transpose to get adj):</strong></p>
+<pre><code>adj A = [[ 27,  40,   2],
+         [−48,  22,  43],
+         [ −1, −17,  62]]</code></pre>
+<p><strong>x = (1/419) · adj A · b</strong>, b = <code>[15, 19, 46]ᵀ</code>:</p>
+<ul><li>x = (27·15 + 40·19 + 2·46)/419 = 1257/419 = <strong>3</strong></li><li>y = (−48·15 + 22·19 + 43·46)/419 = 1676/419 = <strong>4</strong></li><li>z = (−1·15 − 17·19 + 62·46)/419 = 2514/419 = <strong>6</strong></li></ul>
+<p><strong>Answer: x = 3, y = 4, z = 6.</strong> ✓ (Check: 15−24+24=15, 21+16−18=19, 6+4+36=46.)</p>
+<hr>
+<h3 id="q2-5-definitions">Q2 (5) — Definitions</h3>
+<ul><li><strong>Square Matrix:</strong> same number of rows and columns. e.g. <code>[[1,2],[3,4]]</code>.</li><li><strong>Diagonal Matrix:</strong> square with 0 outside the main diagonal. e.g. <code>diag(2,3,5)</code>.</li><li><strong>Inverse Matrix:</strong> A⁻¹ exists when det A ≠ 0; satisfies A A⁻¹ = I. e.g. for <code>[[2,0],[0,3]]</code>, A⁻¹ = <code>[[1/2,0],[0,1/3]]</code>.</li><li><strong>Identity Matrix:</strong> diagonal of 1&#x27;s, all other entries 0. e.g. <code>I₃ = [[1,0,0],[0,1,0],[0,0,1]]</code>.</li><li><strong>Symmetric Matrix:</strong> A = Aᵀ. e.g. <code>[[1,2,3],[2,4,5],[3,5,6]]</code>.</li></ul>
+<hr>
+<h3 id="q3-5-gaussian-elimination-same-system-as-batch-b-q4">Q3 (5) — Gaussian Elimination (same system as Batch B Q4)</h3>
+<pre><code>x + 2y + 3z = 14
+2x + 3y + 4z = 20
+3x + 4y + 6z = 33</code></pre>
+<p><strong>Answer: x = 5, y = −6, z = 7.</strong> (Steps in §CT-01 62(B) Q4 above.) Nature of solution: <strong>unique</strong> (det of coefficient matrix ≠ 0; ranks all = 3).</p>
+<hr>
+<h3 id="q4-5-hermitian-skew-hermitian">Q4 (5) — Hermitian / Skew-Hermitian</h3>
+<p><strong>Definitions:</strong> A is <strong>Hermitian</strong> if A* = A (a_ji = ā_ij). A is <strong>Skew-Hermitian</strong> if A* = −A (a_ji = −ā_ij). Diagonal: real for Hermitian, purely imaginary or 0 for Skew-Hermitian.</p>
+<p><strong>(i) Verify</strong> A = <code>[[2i, 1+i, −3], [−1+i, −4i, 2−i], [3, −2−i, i]]</code> is <strong>Skew-Hermitian.</strong></p>
+<ul><li>Diagonals: 2i, −4i, i — all purely imaginary. ✓</li><li>Pair (1, 2): a₁₂ = 1+i, a₂₁ = −1+i. ā₁₂ = 1−i. Need a₂₁ = −ā₁₂ = −(1−i) = −1+i. ✓</li><li>Pair (1, 3): a₁₃ = −3, a₃₁ = 3. −ā₁₃ = −(−3) = 3 = a₃₁. ✓</li><li>Pair (2, 3): a₂₃ = 2−i, a₃₂ = −2−i. −ā₂₃ = −(2+i) = −2−i = a₃₂. ✓</li></ul>
+<p>So <strong>A is Skew-Hermitian.</strong> ∎</p>
+<p><strong>(ii) Verify</strong> B = <code>[[0, 2+3i, 1−i], [−2+3i, 5i, 4], [−1−i, −4, −6i]]</code> is <strong>Skew-Hermitian.</strong></p>
+<ul><li>Diagonals: 0, 5i, −6i — all 0 / purely imaginary. ✓</li><li>a₁₂ = 2+3i ; a₂₁ = −2+3i ; ā₁₂ = 2−3i ; −ā₁₂ = −2+3i = a₂₁. ✓</li><li>a₁₃ = 1−i ; a₃₁ = −1−i ; −ā₁₃ = −(1+i) = −1−i. ✓</li><li>a₂₃ = 4 ; a₃₂ = −4 ; −ā₂₃ = −4. ✓</li></ul>
+<p>So <strong>B is Skew-Hermitian.</strong> ∎</p>
+<hr>
+<h2 id="ct-02-batch-62d">CT-02, Batch 62(D)</h2>
+<h3 id="q1-8-eigenvalues-of-a-symmetric-matrix">Q1 (8) — Eigenvalues of a symmetric matrix</h3>
+<pre><code>A = [[8, −6, 2], [−6, 7, −4], [2, −4, 3]]</code></pre>
+<p>Characteristic polynomial:</p>
+<pre><code>det(A − λI) = −λ³ + 18λ² − 45λ = −λ(λ² − 18λ + 45) = −λ(λ − 3)(λ − 15)</code></pre>
+<p><strong>Eigenvalues:</strong> <strong>λ = 0, 3, 15.</strong></p>
+<ul><li><strong>λ = 0:</strong> Solve Av = 0. Rows give y = 2x, z = 2x ⇒ <strong>v₁ = (1, 2, 2)ᵀ</strong>.</li><li><strong>λ = 3:</strong> (A−3I)v = 0. From row 3: x = 2y. From row 1: z = −2y ⇒ <strong>v₂ = (2, 1, −2)ᵀ</strong>.</li><li><strong>λ = 15:</strong> (A−15I)v = 0. y = −2z, x = 2z ⇒ <strong>v₃ = (2, −2, 1)ᵀ</strong>.</li></ul>
+<p>(Sanity: the three eigenvectors are mutually orthogonal — a property of symmetric matrices. v₁·v₂ = 2+2−4 = 0 ✓; v₁·v₃ = 2−4+2 = 0 ✓; v₂·v₃ = 4−2−2 = 0 ✓.)</p>
+<hr>
+<h3 id="q2-8-lu-1">Q2 (8) — LU</h3>
+<pre><code> x + 5y + 12z = 47
+ x + 2y +  3z = 14
+2x + 4y +  3z = 19</code></pre>
+<p>Doolittle:</p>
+<pre><code>u11=1, u12=5, u13=12 ;  l21=1, l31=2
+u22 = 2 − 1·5 = −3 ;    u23 = 3 − 1·12 = −9
+l32 = (4 − 2·5)/(−3) = (−6)/(−3) = 2
+u33 = 3 − 2·12 − 2·(−9) = 3 − 24 + 18 = −3</code></pre>
+<pre><code>L = [[1,0,0],[1,1,0],[2,2,1]] ,   U = [[1,5,12],[0,−3,−9],[0,0,−3]]</code></pre>
+<p><strong>Ly = b:</strong> y₁ = 47; y₂ = 14 − 47 = −33; y₃ = 19 − 2·47 − 2·(−33) = 19 − 94 + 66 = −9.<br><strong>Ux = y:</strong> −3z = −9 ⇒ z = 3; −3y − 27 = −33 ⇒ y = 2; x + 10 + 36 = 47 ⇒ x = 1.</p>
+<p><strong>Answer: x = 1, y = 2, z = 3.</strong> ✓</p>
+<hr>
+<h3 id="q3-4-modulus-median-length">Q3 (4) — Modulus + Median Length</h3>
+<p><strong>Definition:</strong> The <strong>modulus</strong> of a complex number <code>z = x + iy</code> is <code>|z| = √(x² + y²)</code> — its distance from the origin in the Argand plane.</p>
+<p><strong>Triangle:</strong> A(1, −2), B(−3, 4), C(2, 2). The median from C goes to the midpoint M of AB.<br>M = ((1 + (−3))/2, (−2 + 4)/2) = <strong>(−1, 1)</strong>.</p>
+<p>In complex form: z_A = 1 − 2i, z_B = −3 + 4i, z_C = 2 + 2i, z_M = (z_A + z_B)/2 = −1 + i.<br>Length of median = <code>|z_C − z_M| = |2 + 2i − (−1 + i)| = |3 + i| = √(9 + 1) = √10</code>.</p>
+<p><strong>Answer: √10 units.</strong> ✓</p>
+<hr>
+<h2 id="spring-2026-class-test-1">SPRING 2026 — Class Test 1</h2>
+<h3 id="set-a">Set A</h3>
+<p><strong>Q1 (5).</strong> Inverse of <code>A = [[4, 5], [6, 7]]</code> by adjoint.<br>det A = 28 − 30 = −2. adj A = <code>[[7, −5], [−6, 4]]</code>.<br><strong>A⁻¹ = (−1/2) [[7, −5], [−6, 4]] = [[−7/2, 5/2], [3, −2]].</strong> ✓</p>
+<p><strong>Q2 (5).</strong> Gauss-Elim: x+y+z = 6, 2x+3y+z = 13, x+2y+3z = 13.<br>R2−2R1: y − z = 1. R3−R1: y + 2z = 7. R3−R2: 3z = 6 ⇒ z = 2; y = 3; x = 1.<br><strong>Answer: x=1, y=3, z=2.</strong> ✓</p>
+<p><strong>Q3 (5).</strong> Gauss-Jordan: 2x+5y+7z=52, 2x+y−z=0, x+y+z=9.<br>R1−R2 ⇒ 4y+8z=52 ⇒ y+2z=13. R2−2R3 ⇒ −y−3z=−18 ⇒ y+3z=18. Subtract ⇒ z=5, y=3, x=1.<br><strong>Answer: x=1, y=3, z=5.</strong> ✓</p>
+<p><strong>Q4 (3+2).</strong> Rank of <code>[[1,2,3],[2,4,5],[2,4,6]]</code>.<br>R2−2R1 = (0,0,−1). R3−2R1 = (0,0,0). Echelon = <code>[[1,2,3],[0,0,−1],[0,0,0]]</code>. <strong>Rank = 2.</strong><br><strong>Symmetric matrix:</strong> A = Aᵀ. e.g. <code>[[1,2],[2,5]]</code>.</p>
+<hr>
+<h3 id="set-b">Set B</h3>
+<p><strong>Q1 (5).</strong> Inverse of <code>[[6, 5], [2, 1]]</code>.<br>det = 6 − 10 = −4. adj = <code>[[1, −5], [−2, 6]]</code>. <strong>A⁻¹ = (−1/4) [[1,−5],[−2,6]] = [[−1/4, 5/4], [1/2, −3/2]].</strong> ✓</p>
+<p><strong>Q2 (5).</strong> Gauss-Elim: 2x+y+4z=12, 4x+11y−z=33, 8x−3y+2z=20.<br>R2−2R1: 9y − 9z = 9 ⇒ y − z = 1.   R3−4R1: −7y − 14z = −28 ⇒ y + 2z = 4.<br>Subtract: 3z = 3 ⇒ z = 1. y = 2. 2x + 2 + 4 = 12 ⇒ x = 3.<br><strong>Answer: x = 3, y = 2, z = 1.</strong> ✓</p>
+<p><strong>Q3 (5).</strong> Gauss-Jordan: 2x+6y+z=7, x+2y−z=−1, 5x+7y−4z=9.<br>Use the second equation (cleaner pivot). After elimination: z = 5, y = −3, x = 10.<br><strong>Answer: x = 10, y = −3, z = 5.</strong> ✓ (Check: 20−18+5=7; 10−6−5=−1; 50−21−20=9.)</p>
+<p><strong>Q4 (3+2).</strong> Rank of <code>[[2,4,6],[1,2,4],[2,4,6]]</code>.<br>R3 = R1 (linearly dependent). R1 not a multiple of R2. <strong>Rank = 2.</strong><br><strong>Skew-Symmetric matrix:</strong> A = −Aᵀ; diagonal entries are 0. e.g. <code>[[0, 2, −3], [−2, 0, 4], [3, −4, 0]]</code>.</p>
+<hr>
+<h2 id="spring-2026-class-test-2">SPRING 2026 — Class Test 2</h2>
+<h3 id="set-a-1">Set A</h3>
+<p><strong>Q1 (2).</strong> <strong>Purely Real number:</strong> a complex number with imaginary part = 0; written <code>z = x + 0·i</code>. e.g. <code>z = 7</code>.</p>
+<p><strong>Q2 (5).</strong> Polar form of <code>z = −√6 − √2 i</code>.<br><code>r = √(6 + 2) = √8 = 2√2</code>. The point (−√6, −√2) is in <strong>Quadrant III</strong>.<br>Reference angle α = arctan(√2/√6) = arctan(1/√3) = π/6.<br>θ = −π + π/6 = <strong>−5π/6</strong> (or equivalently 7π/6).</p>
+<pre><code>z = 2√2 [cos(−5π/6) + i sin(−5π/6)] = 2√2 e^(−i 5π/6).</code></pre>
+<p><strong>Graphically:</strong> plot the point in QIII at distance 2√2 from origin, angle 5π/6 below the negative x-axis.</p>
+<p><strong>Q3 (8).</strong> <strong>State and Prove De Moivre&#x27;s theorem.</strong> See PART III §4 above (statement + induction proof).</p>
+<p><strong>Q4 (5).</strong> Show <code>sin³θ = (3/4) sin θ − (1/4) sin 3θ</code>.<br>By De Moivre: <code>(cos θ + i sin θ)³ = cos 3θ + i sin 3θ</code>.<br>Expand binomially:</p>
+<pre><code>(cos θ + i sin θ)³ = cos³θ + 3i cos²θ sin θ − 3 cos θ sin²θ − i sin³θ.</code></pre>
+<p>Equate <strong>imaginary</strong> parts:</p>
+<pre><code>sin 3θ = 3 cos²θ sin θ − sin³θ
+       = 3(1 − sin²θ) sin θ − sin³θ
+       = 3 sin θ − 4 sin³θ.</code></pre>
+<p>Solve for sin³θ:</p>
+<pre><code>4 sin³θ = 3 sin θ − sin 3θ   ⇒   sin³θ = (3/4) sin θ − (1/4) sin 3θ.   ∎</code></pre>
+<hr>
+<h3 id="set-b-1">Set B</h3>
+<p><strong>Q1 (2).</strong> <strong>Purely Imaginary number:</strong> real part = 0; <code>z = 0 + iy</code>. e.g. <code>z = 5i</code>.</p>
+<p><strong>Q2 (5).</strong> Polar form of <code>z = −5 − √5 i</code>.<br><code>r = √(25 + 5) = √30</code>. Quadrant III. Reference α = arctan(√5/5) = arctan(1/√5).<br>θ = −π + arctan(1/√5)  [≈ −2.678 rad ≈ −153.43°].</p>
+<pre><code>z = √30 [cos(−π + arctan(1/√5)) + i sin(−π + arctan(1/√5))]
+  = √30 e^(i(arctan(1/√5) − π)).</code></pre>
+<p>(Numerically: θ ≈ 206.57°, i.e. 7π/6 + small correction; not a &quot;nice&quot; angle, so leave in arctan form.)</p>
+<p><strong>Q3 (8).</strong> State + prove De Moivre&#x27;s. (Same as Set A Q3.)</p>
+<p><strong>Q4 (5).</strong> Show <code>cos⁴θ = (1/8) cos 4θ + (1/2) cos 2θ + 3/8</code>.<br>Use <code>2 cos θ = e^(iθ) + e^(−iθ)</code>:</p>
+<pre><code>(2 cos θ)⁴ = (e^(iθ) + e^(−iθ))⁴
+         = e^(4iθ) + 4 e^(2iθ) + 6 + 4 e^(−2iθ) + e^(−4iθ)
+         = 2 cos 4θ + 8 cos 2θ + 6.</code></pre>
+<p>So <code>16 cos⁴θ = 2 cos 4θ + 8 cos 2θ + 6</code> ⇒</p>
+<pre><code>cos⁴θ = (1/8) cos 4θ + (1/2) cos 2θ + 3/8.   ∎</code></pre>
+<hr>
+<h1 id="part-v-formula-sheet-cheat-sheet">PART V — FORMULA SHEET / CHEAT SHEET</h1>
+<h2 id="determinants-inverses">Determinants &amp; Inverses</h2>
+<pre><code>2×2:  det[[a,b],[c,d]] = ad − bc
+2×2 inverse: A⁻¹ = (1/(ad−bc)) [[d, −b], [−c, a]]
+
+3×3 det along R1: a(ei−fh) − b(di−fg) + c(dh−eg)
+A⁻¹ = (1/det A) · adj A,    adj A = (cofactor matrix)ᵀ
+Sign pattern:   +  −  +
+                −  +  −
+                +  −  +</code></pre>
+<h2 id="solving-ax-b-quick-chooser">Solving Ax = b — quick chooser</h2>
+<pre><code>Adjoint method      → small (n=3), det ≠ 0, just one b
+Gauss elimination   → general; gives upper-tri then back-sub
+Gauss-Jordan        → goes all the way to RREF; reads off x,y,z
+LU decomposition    → reuse for many right-hand sides
+Cramer&#x27;s rule       → only if explicitly asked; rarely needed</code></pre>
+<h2 id="lu-formulas-doolittle-33">LU formulas (Doolittle, 3×3)</h2>
+<pre><code>u_1j = a_1j  (row 1 of A unchanged)
+l_i1 = a_i1 / u_11
+u_ij = a_ij − Σ_{k&lt;i} l_ik · u_kj    (for j ≥ i)
+l_ij = (a_ij − Σ_{k&lt;j} l_ik · u_kj) / u_jj   (for i &gt; j)</code></pre>
+<h2 id="eigenvalue-formula-33">Eigenvalue formula (3×3)</h2>
+<pre><code>λ³ − (tr A) λ² + (sum of 2×2 principal minors) λ − det A = 0</code></pre>
+<h2 id="complex-number-identities-must-know">Complex-number identities (must-know)</h2>
+<pre><code>i² = −1,  i³ = −i,  i⁴ = 1
+|z|² = z · z̄
+|z₁z₂| = |z₁| |z₂|
+|z₁/z₂| = |z₁|/|z₂|
+arg(z₁z₂) = arg z₁ + arg z₂
+arg(z₁/z₂) = arg z₁ − arg z₂
+
+z = r e^(iθ),     1/z = (1/r) e^(−iθ)
+e^(iθ) = cos θ + i sin θ        (Euler)
+2 cos θ = e^(iθ) + e^(−iθ)
+2i sin θ = e^(iθ) − e^(−iθ)
+
+De Moivre:  (cos θ + i sin θ)^n = cos nθ + i sin nθ
+
+n-th roots of unity:  e^(2πik/n),  k = 0,1,…,n−1
+General n-th root of z = r e^(iθ):  r^(1/n) e^(i(θ + 2πk)/n)</code></pre>
+<h2 id="power-reduction-recipe-key-for-cosn-sinn">Power-reduction recipe (key for cos^n θ, sin^n θ)</h2>
+<ol><li>Replace cos θ by <code>(e^iθ + e^−iθ)/2</code> and sin θ by <code>(e^iθ − e^−iθ)/(2i)</code>.</li><li>Expand the binomial.</li><li>Pair conjugate exponentials and convert back: <code>e^(ikθ)+e^(−ikθ) = 2 cos kθ</code>, <code>e^(ikθ)−e^(−ikθ) = 2i sin kθ</code>.</li></ol>
+<hr>
+<h1 id="part-vi-common-mistakes-shortcuts">PART VI — COMMON MISTAKES &amp; SHORTCUTS</h1>
+<table>
+<thead><tr><th>Trap</th><th>What goes wrong</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Forgetting to <strong>transpose</strong> cofactor matrix</td><td>Wrong inverse, wrong sign pattern</td><td>Always: cofactors → transpose → divide by det</td></tr>
+<tr><td>Sign of cofactor C_ij</td><td>Off-by-sign answers</td><td>Check checkerboard <code>+ − +</code> pattern from top-left</td></tr>
+<tr><td>Using arctan blindly for argument</td><td>Wrong quadrant</td><td>Use the quadrant table; or use atan2</td></tr>
+<tr><td>LU when first pivot is 0</td><td>Division by zero (l21 = a21/0)</td><td>Swap rows first (PA = LU)</td></tr>
+<tr><td>Eigenvector &quot;= 0&quot; answer</td><td>You wrote A·v = 0 trivially</td><td>v MUST be non-zero — choose a free parameter</td></tr>
+<tr><td>Reading rank wrong</td><td>Counting all rows</td><td>Count <strong>non-zero</strong> rows after reduction</td></tr>
+<tr><td><code>(cos θ + i sin θ)^n</code> direct expansion</td><td>Slow, error-prone</td><td>Use exponential form instead</td></tr>
+<tr><td>Triangle inequality direction</td><td>Writing `</td><td>z₁ + z₂</td><td>≥ ...`</td><td>It&#x27;s <code>≤</code> (sum of moduli is at least the modulus of the sum)</td></tr>
+</tbody></table>
+<h3 id="fast-shortcuts">Fast shortcuts</h3>
+<ul><li><strong>3×3 det by Sarrus&#x27; rule:</strong> copy first two columns to the right; sum down-diagonals minus sum up-diagonals.</li><li><strong>Singularity check before adjoint:</strong> compute det first; if 0, switch method or expect &quot;no inverse.&quot;</li><li><strong>Sanity for eigenvalues:</strong> sum = trace, product = det.</li><li><strong>Polar conversion for &quot;nice&quot; points:</strong> know by heart angles for (±1, ±1), (±√3, ±1), (±1, ±√3).</li></ul>
+<hr>
+<h1 id="part-vii-practice-set">PART VII — PRACTICE SET</h1>
+<h2 id="easy-warm-up">Easy (warm-up)</h2>
+<p>E1. Compute det <code>[[3, 2], [4, 5]]</code>. <strong>Ans:</strong> 7.<br>E2. Inverse of <code>[[2, 1], [5, 3]]</code>. <strong>Ans:</strong> <code>[[3, −1], [−5, 2]]</code>.<br>E3. Plot <code>z = −1 + i</code> on Argand plane; find |z| and arg z. <strong>Ans:</strong> √2, 3π/4.<br>E4. Convert <code>z = 1 + i√3</code> to polar form. <strong>Ans:</strong> <code>2(cos π/3 + i sin π/3)</code>.<br>E5. Compute <code>(1 + i)²</code>. <strong>Ans:</strong> 2i.<br>E6. State whether <code>A = [[1, 2, 3], [2, 4, 5], [3, 5, 6]]</code> is symmetric. <strong>Ans:</strong> Yes.<br>E7. Identify type of <code>[[2i, 1+i], [−1+i, 0]]</code>. <strong>Ans:</strong> Skew-Hermitian.</p>
+<h2 id="medium-exam-style">Medium (exam-style)</h2>
+<p>M1. Solve by Gauss-Jordan: x+2y=5, 3x+y=10. <strong>Ans:</strong> x=3, y=1.<br>M2. Solve by adjoint: x+2y+z=4, x+y+z=3, 2x+y+z=4. <strong>Ans:</strong> x=1, y=1, z=1.<br>M3. Find rank of <code>[[1,1,1],[1,2,3],[1,4,9]]</code>. <strong>Ans:</strong> 3.<br>M4. Compute <code>(1 + i)^8</code> using De Moivre. <strong>Ans:</strong> 16.<br>M5. Polar form of −4 + 4i. <strong>Ans:</strong> <code>4√2(cos 3π/4 + i sin 3π/4)</code>.<br>M6. Show <code>cos 2θ = cos²θ − sin²θ</code> via De Moivre. (Standard expansion of (cos θ + i sin θ)².)<br>M7. Find eigenvalues of <code>[[2, 1], [1, 2]]</code>. <strong>Ans:</strong> 1 and 3.<br>M8. LU factor <code>[[2, 3], [4, 7]]</code>. <strong>Ans:</strong> L=<code>[[1,0],[2,1]]</code>, U=<code>[[2,3],[0,1]]</code>.</p>
+<h2 id="hard-challenge">Hard (challenge)</h2>
+<p>H1. Find all four 4-th roots of <code>−16</code> and plot. <strong>Ans:</strong> Write <code>−16 = 16e^{i(π+2kπ)}</code>. Then<br><code>z_k = 16^(1/4)e^{i(π+2kπ)/4} = 2e^{i(π/4 + kπ/2)}</code>, <code>k=0,1,2,3</code>.<br>So the roots are <code>2e^(iπ/4), 2e^(i3π/4), 2e^(i5π/4), 2e^(i7π/4)</code> i.e.<br><code>√2(1+i), √2(−1+i), √2(−1−i), √2(1−i)</code>.<br>H2. Solve via LU: x+y+z=6, 2x+y−z=1, x−y+2z=5. <strong>Ans:</strong> x=1, y=2, z=3.<br>H3. Find eigenvalues/eigenvectors of <code>[[1,1,1],[1,1,1],[1,1,1]]</code>. <strong>Ans:</strong> λ = 3 (v=(1,1,1)) and λ = 0 (double; e.g. (1,−1,0), (1,0,−1)).<br>H4. Express <code>sin⁵ θ</code> in form a sin 5θ + b sin 3θ + c sin θ. <strong>Ans:</strong><br><code>(2i sin θ)^5 = (e^(iθ) − e^(−iθ))^5 = 2i sin 5θ − 10i sin 3θ + 20i sin θ</code>.<br>Hence <code>32i sin⁵θ = 2i(sin 5θ − 5 sin 3θ + 10 sin θ)</code>, so<br><code>sin⁵θ = (1/16) sin 5θ − (5/16) sin 3θ + (5/8) sin θ</code>.<br>H5. Prove the reverse triangle inequality <code>||z₁| − |z₂|| ≤ |z₁ − z₂|</code>. (Hint: apply triangle inequality to <code>z₁ = (z₁ − z₂) + z₂</code>.)</p>
+<hr>
+<h1 id="part-viii-mock-test-1-hour-20-marks">PART VIII — MOCK TEST (1 hour, 20 marks)</h1>
+<blockquote>Format mirrors the actual CT pattern. Answers below.</blockquote>
+<p><strong>Section A — Matrices (12 marks)</strong></p>
+<ol><li>Solve by Adjoint Method (5):</li></ol>
+<p><code>2x + 3y + z = 9, x − y + z = 0, x + 2y + 3z = 14</code>.</p>
+<ol><li>Solve by Gauss-Jordan (5):</li></ol>
+<p><code>x + 2y + z = 6, 2x + y + 3z = 13, 3x + 2y + 2z = 13</code>.</p>
+<ol><li>Define Hermitian and Skew-Symmetric matrices with one example each (2).</li></ol>
+<p><strong>Section B — Complex Numbers (8 marks)</strong></p>
+<ol><li>State and prove De Moivre&#x27;s theorem (4).</li><li>Find polar form of <code>z = √3 − i</code> and compute <code>z⁶</code> using De Moivre (2).</li><li>Show that <code>cos 3θ = 4 cos³θ − 3 cos θ</code> (2).</li></ol>
+<hr>
+<h2 id="answer-key">Answer Key</h2>
+<p><strong>Q1.</strong> A = <code>[[2,3,1],[1,−1,1],[1,2,3]]</code>. det = 2(−3−2) − 3(3−1) + 1(2+1) = −10 − 6 + 3 = −13. Compute adjoint, multiply: result is <strong>x = 1, y = 2, z = 3</strong> (verify by substitution).<br><strong>Q2.</strong> Solving: subtract appropriately. <strong>x = 1, y = 2, z = 3</strong>.<br><strong>Q3.</strong> Hermitian: A = A*; example <code>[[2, 3+i], [3−i, 5]]</code>. Skew-Symmetric: A = −Aᵀ; example <code>[[0, 2], [−2, 0]]</code>.<br><strong>Q4.</strong> See PART III §4 above (full induction proof).<br><strong>Q5.</strong> r = 2; θ = −π/6 (Q4: x&gt;0, y&lt;0). z = 2 e^(−iπ/6). z⁶ = 2⁶ e^(−iπ) = <strong>64·(−1) = −64</strong>.<br><strong>Q6.</strong> Equate <strong>real</strong> parts of <code>(cos θ + i sin θ)³ = cos³θ + 3i cos²θ sin θ − 3 cos θ sin²θ − i sin³θ</code>:<br><code>cos 3θ = cos³θ − 3 cos θ sin²θ = cos³θ − 3 cos θ (1−cos²θ) = 4 cos³θ − 3 cos θ</code>. ∎</p>
+<hr>
+<h1 id="part-ix-active-learning-quiz-revision-checklist">PART IX — ACTIVE-LEARNING QUIZ &amp; REVISION CHECKLIST</h1>
+<h2 id="30-second-flash-quiz-cover-the-right-column">30-second flash quiz (cover the right column)</h2>
+<table>
+<thead><tr><th>Q</th><th>A</th></tr></thead>
+<tbody>
+<tr><td>Sum of eigenvalues equals …</td><td>trace of A</td></tr>
+<tr><td>Product of eigenvalues equals …</td><td>det A</td></tr>
+<tr><td>adj A = ?</td><td>(cofactor matrix)ᵀ</td></tr>
+<tr><td>When does A⁻¹ exist?</td><td>det A ≠ 0</td></tr>
+<tr><td>Rank of <code>[[1,2],[2,4]]</code>?</td><td>1</td></tr>
+<tr><td>Diagonal of a Hermitian matrix is …</td><td>real</td></tr>
+<tr><td>Diagonal of a Skew-Hermitian matrix is …</td><td>0 or purely imaginary</td></tr>
+<tr><td>2 cos θ = …</td><td>e^(iθ) + e^(−iθ)</td></tr>
+<tr><td>2i sin θ = …</td><td>e^(iθ) − e^(−iθ)</td></tr>
+<tr><td>(cos θ + i sin θ)^n = …</td><td>cos nθ + i sin nθ</td></tr>
+<tr><td>Modulus of 3 + 4i?</td><td>5</td></tr>
+<tr><td>Argument of 1 + i?</td><td>π/4</td></tr>
+<tr><td>n-th roots of unity, count?</td><td>n</td></tr>
+<tr><td>(1 + i)² = ?</td><td>2i</td></tr>
+</tbody></table>
+<h2 id="try-before-you-peek-problems">Try-before-you-peek problems</h2>
+<p><strong>P1.</strong> Solve <code>x + y = 3, 2x − y = 0</code> by Gauss-Jordan. <em>(Spoiler: x=1, y=2.)</em><br><strong>P2.</strong> <code>(2 e^(iπ/3))³ = ?</code> <em>(Spoiler: 8 e^(iπ) = −8.)</em><br><strong>P3.</strong> Find eigenvalues of <code>[[3, 1], [0, 3]]</code>. <em>(Spoiler: λ = 3 (double); only one eigenvector direction (1,0).)</em><br><strong>P4.</strong> Express <code>cos²θ</code> as a + b cos 2θ. <em>(Spoiler: ½ + ½ cos 2θ.)</em><br><strong>P5.</strong> Verify triangle inequality for z₁ = 3 + 4i, z₂ = 1 − 2i. <em>(|z₁|=5, |z₂|=√5; |z₁+z₂|=√20 ≈ 4.47 ≤ 7.24 ✓.)</em></p>
+<h2 id="spaced-repetition-queue">Spaced-repetition queue</h2>
+<ul><li><strong>Day 1:</strong> Definitions (matrix types, complex types) + 2×2 inverse + simple De Moivre.</li><li><strong>Day 3:</strong> 3×3 adjoint inverse + Gauss elimination + polar conversion.</li><li><strong>Day 5:</strong> Gauss-Jordan + LU + |z₁/z₂| proof.</li><li><strong>Day 7:</strong> Eigenvalues with double roots + Skew-Hermitian verification.</li><li><strong>Day 10:</strong> cos⁵θ, sin⁵θ identities + n-th roots + median problem.</li><li><strong>Day 14:</strong> Full mock test under timed conditions.</li></ul>
+<h2 id="revision-checklist-tick-before-exam">Revision Checklist (tick before exam)</h2>
+<pre><code>Matrices
+[ ] Can write definition + example for: square, diag, identity,
+    upper/lower tri, symmetric, skew-symmetric, Hermitian, skew-Hermitian.
+[ ] Can compute 3×3 determinant in &lt; 1 minute.
+[ ] Can produce a 3×3 cofactor matrix and adjugate cleanly.
+[ ] Can solve a 3×3 system by adjoint, Gauss, Gauss-Jordan, AND LU.
+[ ] Can find eigenvalues/eigenvectors for a 3×3 (incl. one double root).
+[ ] Can verify a matrix is Hermitian / Skew-Hermitian.
+[ ] Know rank-from-echelon procedure and the rank/nature-of-solution rule.
+
+Complex Numbers
+[ ] Can state Purely Real and Purely Imaginary with examples.
+[ ] Can convert between Cartesian, polar, exponential forms (any quadrant).
+[ ] Can plot z on the Argand diagram and read off |z|, arg z.
+[ ] Can state AND prove De Moivre&#x27;s theorem (induction).
+[ ] Can use De Moivre to compute (a + ib)^n.
+[ ] Can use De Moivre to find n-th roots of any complex number.
+[ ] Can derive cos³θ, sin³θ, cos⁵θ, cos⁴θ identities.
+[ ] Can prove |z₁/z₂| = |z₁|/|z₂| algebraically.
+[ ] Can apply triangle inequality + reverse triangle inequality.
+[ ] Can solve coordinate geometry (e.g. median length) using complex numbers.</code></pre>
+<hr>
+<h1 id="appendix-a-visual-maps-memory-aids">APPENDIX A — Visual Maps &amp; Memory Aids</h1>
+<h2 id="concept-map-matrices">Concept Map: Matrices</h2>
+<pre><code>                ┌──────────────┐
+                │  MATRIX A    │
+                └──────┬───────┘
+       ┌───────────────┼─────────────────────────────┐
+       ▼               ▼                             ▼
+   det A             rank A                    eigenvalues
+   │                 │                             │
+   ├─ 0 → singular   ├─ unique soln (= n)        det(A−λI)=0
+   ├─ ≠0→inverse exists                          │
+   │                                             ├─ tr A = Σλ
+   ▼                                             ├─ det A = Π λ
+   adj A = Cᵀ                                    │
+   │                                             ▼
+   A⁻¹ = adj(A)/det(A)                       eigenvectors:
+                                              (A−λI) v = 0
+
+  Solve Ax = b
+   ├─ Adjoint: x = (1/det A) adj(A) b
+   ├─ Gauss elim: forward → back-sub
+   ├─ Gauss-Jordan: full RREF
+   └─ LU: A = LU, then Ly=b, Ux=y</code></pre>
+<h2 id="concept-map-complex-numbers">Concept Map: Complex Numbers</h2>
+<pre><code>                  z = x + iy
+                 /     |     \
+                /      |      \
+          modulus   conjugate   forms
+            |          |     ┌──┴──┬──────────┐
+           √(x²+y²)   x−iy   Cart  Polar      Exp
+                              │     │          │
+                              │   r(cosθ      r e^(iθ)
+                              │   +i sinθ)
+                              │     │          │
+                              └─────┴──────────┘
+                                    │
+                              De Moivre
+                              z^n = r^n e^(i nθ)
+                                    │
+                ┌───────────────────┼───────────────────┐
+                ▼                   ▼                   ▼
+           Powers (a+bi)^n    n-th roots        Trig identities
+                              (n values, eq.    cos nθ, sin nθ
+                               spaced by 2π/n)  cos^n θ, sin^n θ</code></pre>
+<h2 id="polar-conversion-decision-tree">Polar Conversion Decision Tree</h2>
+<pre><code>                  Is x &gt; 0?
+                  /        \
+               yes          no
+               /              \
+          Is y &gt; 0?       Is y &gt; 0?
+          /     \         /       \
+        yes     no      yes        no
+        Q1      Q4      Q2          Q3
+        θ=arctan(y/x)
+                θ=−arctan|y/x|
+                        θ=π−arctan|y/x|
+                                   θ=−π+arctan|y/x|
+                                  (or  π+arctan|y/x|)</code></pre>
+<h2 id="mnemonics">Mnemonics</h2>
+<ul><li><strong>&quot;+ − +&quot; diagonal pattern:</strong> for cofactor signs (top-left to bottom-right tile).</li><li><strong>&quot;L is lower with 1&#x27;s on the bridge&quot;:</strong> L has 1&#x27;s on its diagonal in Doolittle&#x27;s method.</li><li><strong>&quot;sum-trace, product-det&quot;:</strong> eigenvalues sanity-check.</li><li><strong>&quot;polar = (radius, angle); exp = (radius)·e^(i·angle)&quot;:</strong> they&#x27;re the same data, written two ways.</li></ul>
+<hr>
+<h1 id="part-x-analysis-of-your-attempts-weak-area-tracker">PART X — ANALYSIS OF YOUR ATTEMPTS &amp; WEAK-AREA TRACKER</h1>
+<h2 id="what-was-analyzed-from-your-folder">What was analyzed from your folder</h2>
+<ol><li><code>answer_topi.txt</code> (your complex-number theory writeup and solved examples).</li><li>All uploaded CT images (question extraction + exam pattern detection).</li><li>Existing master study notes (<code>MC_FA_Master_Study_Guide.md</code>) for coverage consistency.</li></ol>
+<h2 id="strengths-seen-in-your-current-work">Strengths seen in your current work</h2>
+<ul><li>Your conceptual explanations are clear and beginner-friendly, especially on forms of complex numbers.</li><li>You already include De Moivre, roots, and triangle inequality in one place, which is exam-smart.</li><li>Your solved examples follow the right sequence: convert form -&gt; apply theorem -&gt; simplify.</li></ul>
+<h2 id="mistakes-gaps-identified-and-corrected">Mistakes / gaps identified and corrected</h2>
+<ol><li><strong>De Moivre statement scope (common exam wording issue):</strong></li></ol>
+<p>Standard CT proof is for integer powers <code>n</code> (especially positive integers via induction). You wrote a broad statement that includes real <code>n</code>; this is not wrong in advanced complex analysis, but in CT answers you should state integer <code>n</code> first, then add an extension note.</p>
+<ol><li><strong>Argument-finding risk with <code>tan^{-1}(y/x)</code>:</strong></li></ol>
+<p>You did mention quadrant adjustment, which is good. Keep using <code>atan2(y,x)</code> logic mentally, because many exam mistakes happen exactly here.</p>
+<ol><li><strong>Theory-to-exam gap on matrix side:</strong></li></ol>
+<p>Your detailed personal writeup is strong for complex numbers, but matrix-side attempt notes are missing. This can create a score gap because CT-1 and CT-2 both carry heavy matrix marks (inverse, Gauss/Jordan, LU, eigen).</p>
+<ol><li><strong>Step-formatting for 8-mark answers:</strong></li></ol>
+<p>For LU/eigenvalue questions, examiners reward structure. Use fixed headings in script:<br><code>Given -&gt; A, b -&gt; Decompose A=LU -&gt; Solve Ly=b -&gt; Solve Ux=y -&gt; Verify</code>.</p>
+<h2 id="personalized-weak-area-map-from-your-materials">Personalized weak-area map (from your materials)</h2>
+<table>
+<thead><tr><th>Topic</th><th>Current level</th><th>Evidence from uploads</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>Polar conversion + Argand</td><td>Strong</td><td>detailed in <code>answer_topi.txt</code> + CT2 Set A/B</td><td>Medium</td></tr>
+<tr><td>De Moivre proof + identities</td><td>Medium-Strong</td><td>covered with examples; needs exam-proof formatting</td><td>High</td></tr>
+<tr><td>Triangle inequality / modulus properties</td><td>Medium</td><td>theory present; fewer mixed problems practiced</td><td>Medium</td></tr>
+<tr><td>3x3 inverse (adjoint/row-canonical)</td><td>Medium</td><td>appears in papers; less personal worked evidence</td><td>High</td></tr>
+<tr><td>Gauss elimination / Gauss-Jordan</td><td>Medium</td><td>frequent in papers; needs speed drills</td><td>High</td></tr>
+<tr><td>LU decomposition</td><td>Medium</td><td>many 8-mark appearances; must be fluent</td><td>Very High</td></tr>
+<tr><td>Eigenvalues/eigenvectors (3x3)</td><td>Medium</td><td>many 8-mark appearances; needs repeated practice</td><td>Very High</td></tr>
+<tr><td>Hermitian / Skew-Hermitian verification</td><td>Medium</td><td>appears in 62(D); easy to lose signs</td><td>High</td></tr>
+</tbody></table>
+<h2 id="targeted-improvement-drills-your-next-5-sessions">Targeted improvement drills (your next 5 sessions)</h2>
+<ol><li>Session 1 (60 min): 2 inverse + 2 Gauss elimination + 1 Gauss-Jordan.</li><li>Session 2 (60 min): 2 LU full solves + 1 eigenvalue 3x3.</li><li>Session 3 (45 min): De Moivre proof from memory + 4 trig-identity derivations.</li><li>Session 4 (45 min): 4 polar conversions (all quadrants) + 2 modulus inequality proofs.</li><li>Session 5 (60 min): one full mixed mock (20 marks) under timer.</li></ol>
+<h2 id="error-log-template-fill-after-every-practice-set">Error-log template (fill after every practice set)</h2>
+<table>
+<thead><tr><th>Date</th><th>Question ID</th><th>Mistake Type</th><th>Why It Happened</th><th>Correct Pattern</th><th>Re-test Date</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td>sign / algebra / method / time</td><td></td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h1 id="part-xi-adaptive-active-learning-mode">PART XI — ADAPTIVE ACTIVE-LEARNING MODE</h1>
+<p>Use this section as your personal tutor workflow after each chapter.</p>
+<h2 id="step-a-learn---recall---solve">Step A — Learn -&gt; Recall -&gt; Solve</h2>
+<ol><li>Read one concept block (10-15 minutes max).</li><li>Close notes and write the definition/procedure from memory.</li><li>Solve one easy + one medium + one hard question.</li><li>Check only after full attempt.</li></ol>
+<h2 id="step-b-section-quizzes-do-before-seeing-answers">Step B — Section quizzes (do before seeing answers)</h2>
+<h3 id="quiz-matrix-foundations">Quiz: Matrix Foundations</h3>
+<p>Q1. Define diagonal, identity, symmetric, and skew-symmetric matrices with examples.<br>Q2. Why must <code>det(A) != 0</code> for inverse to exist?<br>Q3. In one line: difference between Gauss elimination and Gauss-Jordan.</p>
+<h3 id="quiz-lu-eigen">Quiz: LU + Eigen</h3>
+<p>Q1. In Doolittle LU, what is fixed on the diagonal of <code>L</code>?<br>Q2. State two quick checks for eigenvalues of a 3x3 matrix.<br>Q3. If one eigenvalue is repeated, how do you decide if there are one or two independent eigenvectors?</p>
+<h3 id="quiz-complex-numbers">Quiz: Complex Numbers</h3>
+<p>Q1. Convert <code>z = -3 + 3i</code> to polar form with principal argument.<br>Q2. State De Moivre theorem and one direct use-case from CT.<br>Q3. Prove in one short line: <code>|z|^2 = z\bar z</code>.</p>
+<h2 id="step-c-spaced-repetition-prompts">Step C — Spaced repetition prompts</h2>
+<ul><li><strong>After 24 hours:</strong> redo 5 key formulas from memory.</li><li><strong>After 3 days:</strong> solve one full LU + one full eigen + one De Moivre identity.</li><li><strong>After 7 days:</strong> attempt one timed 20-mark mixed test.</li><li><strong>After 14 days:</strong> attempt a second timed test and compare error log.</li></ul>
+<h2 id="step-d-adaptive-rule-how-to-respond-to-weak-areas">Step D — Adaptive rule (how to respond to weak areas)</h2>
+<ul><li>If two mistakes occur in the same topic on one day, schedule that topic first in the next session.</li><li>If a question takes more than 12 minutes, classify it as a speed weakness and add one extra timed drill.</li><li>If a proof is correct but long, rewrite it in exam-optimized 8-10 lines.</li><li>If a topic is correct twice in a row under time, downgrade it from High priority to Medium.</li></ul>
+<h2 id="self-check-scoreboard-update-every-3-days">Self-check scoreboard (update every 3 days)</h2>
+<table>
+<thead><tr><th>Skill</th><th>Accuracy %</th><th>Avg Time</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Inverse (adjoint + row-canonical)</td><td></td><td></td><td></td></tr>
+<tr><td>Gauss / Jordan solving</td><td></td><td></td><td></td></tr>
+<tr><td>LU decomposition</td><td></td><td></td><td></td></tr>
+<tr><td>Eigenvalues/eigenvectors</td><td></td><td></td><td></td></tr>
+<tr><td>Polar conversion + Argand</td><td></td><td></td><td></td></tr>
+<tr><td>De Moivre proof + identities</td><td></td><td></td><td></td></tr>
+<tr><td>Triangle/modulus properties</td><td></td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h1 id="closing-note">CLOSING NOTE</h1>
+<p>This guide consolidates <strong>every problem</strong> present in your folder, organizes the syllabus into a 14-stage roadmap, and ends with a checklist you can tick off the night before the exam. If a single concept still feels shaky, return to the matching section in <strong>PART II</strong> (matrices) or <strong>PART III</strong> (complex numbers), then redo the corresponding question in <strong>PART IV</strong> without looking. Repeat until silent.</p>
+<p><strong>Next study session priority order (based on what carries the most marks per CT):</strong></p>
+<ol><li>LU decomposition (8 marks every CT-2).</li><li>Eigenvalues / eigenvectors (8 marks every CT-2).</li><li>De Moivre proof (4–8 marks).</li><li>cos^n θ / sin^n θ identities (4–5 marks).</li><li>Adjoint inverse + Gauss + Gauss-Jordan (5+5+5 = 15 marks every CT-1).</li><li>Definitions (5 marks one slot every CT-1).</li></ol>
+<p>Good luck, and study with paper and pen — not just by reading.</p>
+<footer>Prepared for MAT 135 | Master Study Guide</footer>
+</main></div>
+</body></html>

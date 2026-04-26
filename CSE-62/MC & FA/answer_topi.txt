@@ -1,0 +1,135 @@
+Below is a comprehensive explanation of **Complex Numbers** covering all required topics: types (forms), De Moivre’s theorem, graphical representation, triangle inequality, and solved examples.
+
+---
+
+## 1. Definition of a Complex Number
+
+A complex number \(z\) is an expression of the form  
+\[
+z = x + iy
+\]  
+where \(x, y \in \mathbb{R}\) and \(i = \sqrt{-1}\) (so \(i^2 = -1\)).  
+- \(x = \operatorname{Re}(z)\) is the **real part**  
+- \(y = \operatorname{Im}(z)\) is the **imaginary part**
+
+Two complex numbers are equal iff their real and imaginary parts are equal.
+
+---
+
+## 2. Different Forms (Types) of Complex Numbers
+
+| Form | Expression | Example | Remarks |
+|------|------------|---------|---------|
+| **Cartesian (Rectangular)** | \(z = x + iy\) | \(3 - 2i\) | Most basic form. |
+| **Trigonometric (Polar)** | \(z = r(\cos\theta + i\sin\theta)\) | \(2\left(\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}\right)\) | \(r = |z| = \sqrt{x^2+y^2}\), \(\theta = \arg z\). |
+| **Exponential (Euler)** | \(z = r e^{i\theta}\) | \(2e^{i\pi/3}\) | Very useful for multiplication/powers. |
+| **Phasor form** | \(z = r \angle \theta\) | \(2\angle 60^\circ\) | Used in electrical engineering. |
+
+### Conversion between forms
+- From Cartesian to polar:  
+  \(r = \sqrt{x^2+y^2},\quad \theta = \tan^{-1}(y/x)\) (adjust quadrant).
+- From polar to Cartesian:  
+  \(x = r\cos\theta,\quad y = r\sin\theta\).
+
+---
+
+## 3. Graphical Representation (Argand Diagram)
+
+- The complex plane: horizontal axis = real part, vertical axis = imaginary part.
+- A complex number \(z = x+iy\) is represented by a point \((x,y)\) or a vector from the origin.
+- **Modulus** \(r = |z|\) = length of the vector.
+- **Argument** \(\theta = \arg z\) = angle from positive real axis.
+
+Example: Plot \(z = 1 + i\).  
+\(r = \sqrt{1^2+1^2} = \sqrt{2},\quad \theta = \tan^{-1}(1) = \pi/4\) (45°).  
+So \(z = \sqrt{2}(\cos 45^\circ + i\sin 45^\circ) = \sqrt{2}\,e^{i\pi/4}\).
+
+---
+
+## 4. De Moivre’s Theorem
+
+**Statement:** For any real number \(n\) and any complex number in polar form \(z = r(\cos\theta + i\sin\theta)\),  
+\[
+z^n = r^n \big(\cos(n\theta) + i\sin(n\theta)\big)
+\]  
+and for \(r=1\):  
+\[
+(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta).
+\]
+
+**Proof (by induction for positive integers \(n\)):**  
+Base \(n=1\): trivial.  
+Assume true for \(n=k\): \((\cos\theta+i\sin\theta)^k = \cos k\theta + i\sin k\theta\).  
+Multiply by \(\cos\theta+i\sin\theta\) and use trig addition formulas:  
+\[
+(\cos k\theta+i\sin k\theta)(\cos\theta+i\sin\theta) = \cos(k\theta+\theta)+i\sin(k\theta+\theta) = \cos(k+1)\theta+i\sin(k+1)\theta.
+\]  
+Hence true for \(n=k+1\). The theorem also holds for negative integers and rational numbers (with care for roots).
+
+---
+
+## 5. Triangle Inequality
+
+For any two complex numbers \(z_1, z_2\):
+\[
+|z_1 + z_2| \le |z_1| + |z_2|
+\]  
+Proof: Using geometry (vector sum) or algebra:  
+\(|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2\operatorname{Re}(z_1\overline{z_2}) \le |z_1|^2 + |z_2|^2 + 2|z_1||z_2| = (|z_1|+|z_2|)^2\).
+
+Also the reverse triangle inequality: \( \big||z_1| - |z_2|\big| \le |z_1 - z_2|\).
+
+---
+
+## 6. Solved Examples (Questions & Answers)
+
+### Example 1: Converting forms
+**Q:** Express \(z = -1 + i\sqrt{3}\) in polar and exponential form.  
+**Sol:**  
+\(r = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1+3} = 2\).  
+Argument: \(\tan\theta = \frac{\sqrt{3}}{-1} = -\sqrt{3}\). The point \((-1, \sqrt{3})\) lies in Quadrant II, so \(\theta = \pi - \pi/3 = 2\pi/3\).  
+Thus \(z = 2\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right) = 2e^{i2\pi/3}\).
+
+### Example 2: Using De Moivre’s theorem to compute power
+**Q:** Compute \((1+i)^6\).  
+**Sol:**  
+First convert \(1+i\) to polar: \(r = \sqrt{2}\), \(\theta = \pi/4\). So \(1+i = \sqrt{2}\,e^{i\pi/4}\).  
+Then \((1+i)^6 = (\sqrt{2})^6 e^{i6\pi/4} = 2^{3} e^{i3\pi/2} = 8(\cos 3\pi/2 + i\sin 3\pi/2) = 8(0 - i) = -8i\).
+
+### Example 3: Finding roots using De Moivre
+**Q:** Find all cube roots of \(8i\).  
+**Sol:** Write \(8i\) in polar form: \(r=8\), \(\theta = \pi/2 + 2k\pi\) (since \(i = e^{i\pi/2}\)).  
+So \(8i = 8e^{i(\pi/2 + 2k\pi)}\). Cube root:  
+\[
+z = 8^{1/3} e^{i(\pi/6 + 2k\pi/3)} = 2 e^{i(\pi/6 + 2k\pi/3)},\quad k=0,1,2.
+\]  
+- \(k=0\): \(2(\cos 30^\circ + i\sin 30^\circ) = 2(\sqrt{3}/2 + i/2) = \sqrt{3} + i\)  
+- \(k=1\): \(2(\cos 150^\circ + i\sin 150^\circ) = 2(-\sqrt{3}/2 + i/2) = -\sqrt{3} + i\)  
+- \(k=2\): \(2(\cos 270^\circ + i\sin 270^\circ) = 2(0 - i) = -2i\)  
+
+### Example 4: Proving trigonometric identity using De Moivre
+**Q:** Show that \(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\).  
+**Sol:** From De Moivre: \(\cos3\theta + i\sin3\theta = (\cos\theta + i\sin\theta)^3\). Expand RHS:  
+\(= \cos^3\theta + 3i\cos^2\theta\sin\theta - 3\cos\theta\sin^2\theta - i\sin^3\theta\).  
+Equate real parts: \(\cos3\theta = \cos^3\theta - 3\cos\theta\sin^2\theta\).  
+Use \(\sin^2\theta = 1-\cos^2\theta\):  
+\(\cos3\theta = \cos^3\theta - 3\cos\theta(1-\cos^2\theta) = \cos^3\theta - 3\cos\theta + 3\cos^3\theta = 4\cos^3\theta - 3\cos\theta\).
+
+### Example 5: Triangle inequality verification
+**Q:** Verify triangle inequality for \(z_1 = 3+4i,\; z_2 = 1-2i\).  
+**Sol:**  
+\(|z_1| = 5,\; |z_2| = \sqrt{1+4}=\sqrt{5}\approx 2.236\). Sum of moduli = \(5+2.236=7.236\).  
+\(z_1+z_2 = 4+2i,\; |z_1+z_2| = \sqrt{16+4}=\sqrt{20}\approx 4.472 < 7.236\). Inequality holds.
+
+---
+
+## 7. Summary of Key Points
+
+- Complex numbers extend real numbers to include \(i=\sqrt{-1}\).
+- Three main forms: Cartesian (\(x+iy\)), polar (\(r\angle\theta\)), exponential (\(re^{i\theta}\)).
+- De Moivre’s theorem simplifies powers and roots.
+- Graphical representation helps visualise modulus and argument.
+- Triangle inequality is fundamental in complex analysis.
+- Many trigonometric identities can be proved using De Moivre.
+
+For further practice: convert between forms, compute powers of complex numbers, find nth roots, and prove identities using De Moivre.
